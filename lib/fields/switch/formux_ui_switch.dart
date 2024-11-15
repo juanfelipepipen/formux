@@ -1,8 +1,8 @@
 import 'package:pipen/extensions/context_extension.dart';
 import 'package:flutter/cupertino.dart';
 
-class FormuxUiSwitchButton extends StatelessWidget {
-  const FormuxUiSwitchButton({
+class FormuxSwitchButton extends StatelessWidget {
+  const FormuxSwitchButton({
     super.key,
     this.onChange,
     this.activeColor,

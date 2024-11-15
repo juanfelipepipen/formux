@@ -1,8 +1,9 @@
 import 'package:pipen/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
-class FormuxUiTextField extends StatefulWidget {
-  const FormuxUiTextField({
+class FormuxTextFieldRaw extends StatefulWidget {
+  const FormuxTextFieldRaw({
+    super.key,
     this.style,
     this.maxLines,
     this.hintText,
@@ -23,7 +24,6 @@ class FormuxUiTextField extends StatefulWidget {
     this.obscureText = false,
     this.contentPaddingLeft = 8,
     this.hintColor = Colors.grey,
-    super.key,
   });
 
   final FontWeight? fontWeight, hintFontWeight;
@@ -42,10 +42,10 @@ class FormuxUiTextField extends StatefulWidget {
   final String value;
 
   @override
-  State<FormuxUiTextField> createState() => _SimpleTextFieldRawState();
+  State<FormuxTextFieldRaw> createState() => _SimpleTextFieldRawState();
 }
 
-class _SimpleTextFieldRawState extends State<FormuxUiTextField> {
+class _SimpleTextFieldRawState extends State<FormuxTextFieldRaw> {
   TextEditingController controller = TextEditingController();
   late FocusNode focusNode;
 
@@ -68,7 +68,7 @@ class _SimpleTextFieldRawState extends State<FormuxUiTextField> {
   }
 
   @override
-  void didUpdateWidget(covariant FormuxUiTextField oldWidget) {
+  void didUpdateWidget(covariant FormuxTextFieldRaw oldWidget) {
     super.didUpdateWidget(oldWidget);
     didUpdateTextFromInput();
   }

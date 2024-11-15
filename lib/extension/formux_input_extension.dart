@@ -1,4 +1,4 @@
-import '../abstract/formux_input.dart';
+import 'package:formux/formux_input.dart';
 
 extension FormuxInputExtension on List<FormuxInput> {
   /// Loading inputs

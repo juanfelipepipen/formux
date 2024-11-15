@@ -1,30 +1,31 @@
 import 'package:pipen/components/transitions/slice_from_up/pipen_slice_from_up.dart';
+import 'package:pipen/extensions/context_extension.dart';
 import 'package:pipen/formux/abstract/formux_input.dart';
 import 'package:flutter/material.dart';
 
-class FormuxUiErrorText extends StatefulWidget {
-  const FormuxUiErrorText({
+class FormuxErrorText extends StatefulWidget {
+  const FormuxErrorText({
     super.key,
+    required this.input,
+    this.color,
     this.fontWeight,
     this.letterSpacing,
     this.errors = true,
-    this.color = Colors.red,
     this.align = TextAlign.left,
-    required this.input,
   });
 
   final FontWeight? fontWeight;
   final double? letterSpacing;
   final FormuxInput input;
   final TextAlign align;
+  final Color? color;
   final bool errors;
-  final Color color;
 
   @override
-  State<FormuxUiErrorText> createState() => _FormuxUiErrorTextState();
+  State<FormuxErrorText> createState() => _FormuxErrorTextState();
 }
 
-class _FormuxUiErrorTextState extends State<FormuxUiErrorText> {
+class _FormuxErrorTextState extends State<FormuxErrorText> {
   String? error;
 
   @override
@@ -34,7 +35,7 @@ class _FormuxUiErrorTextState extends State<FormuxUiErrorText> {
   }
 
   @override
-  void didUpdateWidget(covariant FormuxUiErrorText oldWidget) {
+  void didUpdateWidget(covariant FormuxErrorText oldWidget) {
     didCompareError();
     super.didUpdateWidget(oldWidget);
   }
@@ -62,9 +63,9 @@ class _FormuxUiErrorTextState extends State<FormuxUiErrorText> {
                 error ?? '',
                 textAlign: widget.align,
                 style: TextStyle(
-                  color: widget.color,
                   fontWeight: widget.fontWeight,
                   letterSpacing: widget.letterSpacing,
+                  color: widget.color ?? context.themeColors.error,
                 ),
               ),
             )
