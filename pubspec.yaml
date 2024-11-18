@@ -1,15 +1,15 @@
 name: formux
-version: 0.0.1
+version: 0.0.2
 description: "Form validator system"
 homepage: "https://formux.pipen.dev"
 repository: "https://github.com/juanfelipepipen/formux"
-
 
 environment:
   sdk: ^3.5.4
   flutter: ">=1.17.0"
 
 dependencies:
+  bloc: ^8.1.4
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
