@@ -15,7 +15,7 @@ abstract class CubitForm<F extends Formux> extends Cubit<F> {
       onValid.call(form);
     }
 
-    if (F case FormuxCopy<F> coppier) {
+    if (state case FormuxCopy<F> coppier) {
       emit(coppier.copy());
     } else {
       throw Exception("FormuxCopy is not defined in ${F.runtimeType}");
