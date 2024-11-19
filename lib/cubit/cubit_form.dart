@@ -1,5 +1,5 @@
-import 'package:pipen/formux/abstract/formux.dart';
 import 'package:formux/abstract/formux_copy.dart';
+import 'package:formux/formux.dart';
 import 'package:bloc/bloc.dart';
 
 abstract class CubitForm<F extends Formux> extends Cubit<F> {

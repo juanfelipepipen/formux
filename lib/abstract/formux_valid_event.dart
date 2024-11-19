@@ -1,5 +1,5 @@
-import 'package:pipen/formux/abstract/formux.dart';
 import 'package:flutter/foundation.dart';
+import 'package:formux/formux.dart';
 
 mixin FormuxValidEvent<F extends Formux> {
   /// Emitter for a new state from parent

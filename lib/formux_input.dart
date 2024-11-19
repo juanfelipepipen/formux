@@ -65,7 +65,7 @@ abstract class FormuxInput<T> {
   /// Throw if input isn't pass
   void passer() {
     validate();
-    if (!pass) throw FormuxInputFailedPassException();
+    if (!pass) throw FormuxFailedPassException();
   }
 
   /// Add custom error

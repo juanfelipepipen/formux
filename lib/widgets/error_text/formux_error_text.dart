@@ -1,7 +1,7 @@
 import 'package:pipen/components/transitions/slice_from_up/pipen_slice_from_up.dart';
 import 'package:pipen/extensions/context_extension.dart';
-import 'package:pipen/formux/abstract/formux_input.dart';
 import 'package:flutter/material.dart';
+import 'package:formux/formux.dart';
 
 class FormuxErrorText extends StatefulWidget {
   const FormuxErrorText({

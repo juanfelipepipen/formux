@@ -1,3 +1,7 @@
+* ## 0.0.5
+
+* Pipen formux removed
+
 * ## 0.0.4
 
 * Formux input part of formux
