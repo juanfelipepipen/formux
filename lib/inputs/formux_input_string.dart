@@ -1,4 +1,4 @@
-import 'package:formux/formux_input.dart';
+import 'package:formux/formux.dart';
 
 abstract class FormuxInputString extends FormuxInput<String> {
   FormuxInputString({super.value = '', super.required});

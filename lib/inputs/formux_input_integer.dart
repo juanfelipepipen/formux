@@ -1,4 +1,4 @@
-import 'package:formux/formux_input.dart';
+import 'package:formux/formux.dart';
 
 abstract class FormuxInputInteger extends FormuxInput<int?> {
   FormuxInputInteger({required this.items, super.value, super.required});

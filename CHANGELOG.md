@@ -1,3 +1,7 @@
+* ## 0.0.4
+
+* Formux input part of formux
+
 * ## 0.0.3
 
 * Corrections

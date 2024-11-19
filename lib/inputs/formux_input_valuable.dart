@@ -1,5 +1,5 @@
 import 'package:pipen/valuable/valuable.dart';
-import 'package:formux/formux_input.dart';
+import 'package:formux/formux.dart';
 
 abstract class FormuxInputValuable extends FormuxInput<Valuable?> {
   FormuxInputValuable({required super.value, List<Valuable>? items, super.required, this.fetch}) {

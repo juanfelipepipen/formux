@@ -1,7 +1,9 @@
+import 'package:pipen/formux/exceptions/formux_input_failed_pass_exception.dart';
 import 'exceptions/formux_failed_pass_exception.dart';
 import 'package:pipen/valuable/valuable.dart';
 import 'package:flutter/foundation.dart';
-import 'formux_input.dart';
+
+part 'formux_input.dart';
 
 abstract class Formux<F> {
   /// Constructor

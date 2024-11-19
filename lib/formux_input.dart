@@ -1,4 +1,4 @@
-import 'package:pipen/formux/exceptions/formux_input_failed_pass_exception.dart';
+part of 'formux.dart';
 
 abstract class FormuxInput<T> {
   /// Current input error
