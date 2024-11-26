@@ -1,3 +1,7 @@
+* ## 0.0.6
+
+* PipenGap on fields
+
 * ## 0.0.5
 
 * Pipen formux removed

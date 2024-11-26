@@ -1,6 +1,6 @@
-import 'package:pipen/components/builders/builder/pipen_fetch_builder.dart';
 import 'package:pipen/components/builders/builder/pipen_builder_when.dart';
 import 'package:formux/fields/dropdown/state/dropdown_cubit.dart';
+import 'package:pipen/bloc/builder/bloc_builder_fetch.dart';
 import 'package:formux/inputs/formux_input_valuable.dart';
 import 'package:pipen/components/row/pipen_row.dart';
 import 'package:pipen/abstract/loading_state.dart';
@@ -45,7 +45,7 @@ class _FormuxDropdownFieldLayoutState extends State<FormuxDropdownFieldLayout> {
   }
 
   @override
-  Widget build(BuildContext context) => PipenFetchBuilder<DropdownCubit, ValuableList>(
+  Widget build(BuildContext context) => BlocFetchBuilder<DropdownCubit, ValuableList>(
         builder: (context, state, bloc) => PipenRow(
           vertical: CrossAxisAlignment.center,
           children: [

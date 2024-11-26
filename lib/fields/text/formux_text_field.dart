@@ -1,5 +1,6 @@
 import 'package:pipen/extensions/context_extension.dart';
 import 'package:formux/inputs/formux_input_string.dart';
+import 'package:pipen/components/gap/pipen_gap.dart';
 import 'package:flutter/material.dart';
 
 class FormuxTextField extends StatefulWidget {
@@ -65,8 +66,7 @@ class _FormuxTextFieldState extends State<FormuxTextField> {
   }
 
   @override
-  Widget build(BuildContext context) => SizedBox.square(
-        dimension: 10,
+  Widget build(BuildContext context) => PipenGap.small(
         child: TextField(
           controller: controller,
           minLines: widget.minLines,
