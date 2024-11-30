@@ -45,7 +45,7 @@ class _FormuxDropdownFieldLayoutState extends State<FormuxDropdownFieldLayout> {
   }
 
   @override
-  Widget build(BuildContext context) => BlocFetchBuilder<DropdownCubit, ValuableList>(
+  Widget build(BuildContext context) => BlocBuilderFetch<DropdownCubit, ValuableList>(
         builder: (context, state, bloc) => PipenRow(
           vertical: CrossAxisAlignment.center,
           children: [
