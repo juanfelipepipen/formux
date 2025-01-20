@@ -13,7 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^9.0.0
-
+#  pipen: ^0.0.25
   pipen:
     path: ../pipen-library
 
