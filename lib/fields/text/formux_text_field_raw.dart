@@ -122,7 +122,7 @@ class _SimpleTextFieldRawState extends State<FormuxTextFieldRaw> {
               TextStyle(
                 fontSize: widget.textSize,
                 fontWeight: widget.hintFontWeight,
-                color: widget.enable ? widget.hintColor : widget.hintColor.withOpacity(0.4),
+                color: widget.enable ? widget.hintColor : widget.hintColor.withValues(alpha: 0.4),
               ),
         ),
       );

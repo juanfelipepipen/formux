@@ -19,7 +19,7 @@ class FormuxSwitchButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => CupertinoSwitch(
         value: value,
-        activeColor: enabled ? color : context.themeColors.primary.withOpacity(0.7),
+        activeTrackColor: enabled ? color : context.themeColors.primary.withValues(alpha: 0.7),
         onChanged: (bool value) {
           if (enabled) {
             onChange?.call(value);

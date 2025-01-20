@@ -1,3 +1,7 @@
+* ## 0.0.8
+
+* Dependencies corrections
+
 * ## 0.0.7
 
 * Minimal corrections
