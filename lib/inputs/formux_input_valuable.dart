@@ -42,4 +42,13 @@ abstract class FormuxInputValuable extends FormuxInput<Valuable?> {
       value = items.firstWhere((element) => element.value == id);
     }
   }
+
+  /// Update from id
+  void valueWithoutError(Valuable? value) {
+    if (value == null) {
+      hideErrors();
+    } else {
+      this.value = value;
+    }
+  }
 }
