@@ -43,10 +43,7 @@ class _FormuxDropdownFieldFormFetchState extends State<FormuxDropdownFieldFormFe
   Widget build(BuildContext context) => BlocProvider(
         create: (context) => DropdownFetchCubit(initial: original),
         child: BlocListenerFetch<DropdownFetchCubit, DropdownState>(
-          listener: (context, state) => DropdownFetchListener(
-            listen: (context, state),
-            onChange: widget.onChange,
-          ),
+          listener: DropdownFetchListener(onChange: widget.onChange),
           child: PipenGap.small(
             child: PipenDropdownFormLayout(
               input: widget.input,

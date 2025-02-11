@@ -1,6 +1,5 @@
 import 'package:formux/fields/dropdown/formux_dropdown_field_layout.dart';
 import 'package:formux/fields/dropdown/state/dropdown_cubit.dart';
-import 'package:pipen/bloc/listener/bloc_listener_fetch.dart';
 import 'package:formux/inputs/formux_input_valuable.dart';
 import 'package:pipen/components/gap/pipen_gap.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,7 +8,12 @@ import 'package:pipen/valuable/valuable.dart';
 import 'package:flutter/material.dart';
 
 class FormuxDropdownFieldFetch extends StatefulWidget {
-  const FormuxDropdownFieldFetch({super.key, required this.input, this.label, required this.onChange});
+  const FormuxDropdownFieldFetch({
+    super.key,
+    this.label,
+    required this.input,
+    required this.onChange,
+  });
 
   final Function(Valuable?)? onChange;
   final FormuxInputValuable input;
@@ -51,7 +55,7 @@ class _FormuxDropdownFieldFetchState extends State<FormuxDropdownFieldFetch> {
   @override
   Widget build(BuildContext context) => BlocProvider(
         create: (context) => DropdownCubit(),
-        child: BlocListenerFetch<DropdownCubit, ValuableList>(
+        child: BlocListener<DropdownCubit, FetchState<ValuableList>>(
           listener: listener,
           child: PipenGap.small(
             child: FormuxDropdownFieldLayout(

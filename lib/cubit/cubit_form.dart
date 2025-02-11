@@ -1,6 +1,6 @@
 import 'package:cloux/managers/exceptions/input_errors_exception.dart';
-import 'package:formux/abstract/formux_copy.dart';
 import 'package:formux/abstract/formux_input_ids.dart';
+import 'package:formux/abstract/formux_copy.dart';
 import 'package:formux/formux.dart';
 import 'package:bloc/bloc.dart';
 
