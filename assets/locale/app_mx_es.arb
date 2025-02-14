@@ -3,6 +3,7 @@
   "selectCountry": "Debe seleccionar un país",
   "formatIncorrect": "El formato no es correcto",
   "emailFormatIncorrect": "El formato no es correcto",
+  "emailDomainOutsideAllowed": "El dominio del correo ingresado no se encuentra permitido",
   "passwordConfirmationIncorrect": "La contraseña de confirmación no es correcta",
   "dateTimeAfterThan": "La fecha debe ser mayor a {dateTime}",
   "@dateTimeAfterThan": {
@@ -33,6 +34,14 @@
     "placeholders": {
       "length": {
         "type": "num"
+      }
+    }
+  },
+  "emailDomainNotAllowed": "Solo se permite correo electrónico del dominio @{domain}",
+  "@emailDomainNotAllowed": {
+    "placeholders": {
+      "domain": {
+        "type": "String"
       }
     }
   }

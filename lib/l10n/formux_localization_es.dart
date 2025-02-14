@@ -19,6 +19,9 @@ class FormuxLocalizationEs extends FormuxLocalization {
   String get emailFormatIncorrect => 'El formato no es correcto';
 
   @override
+  String get emailDomainOutsideAllowed => 'El dominio del correo ingresado no está permitido';
+
+  @override
   String get passwordConfirmationIncorrect => 'La contraseña de confirmación no es correcta';
 
   @override
@@ -39,5 +42,10 @@ class FormuxLocalizationEs extends FormuxLocalization {
   @override
   String fixedLength(num length) {
     return 'La longitud debe ser de $length carácteres';
+  }
+
+  @override
+  String emailDomainNotAllowed(String domain) {
+    return 'Solo se permite correo electrónico del dominio @$domain';
   }
 }

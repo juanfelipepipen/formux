@@ -115,6 +115,12 @@ abstract class FormuxLocalization {
   /// **'El formato no es correcto'**
   String get emailFormatIncorrect;
 
+  /// No description provided for @emailDomainOutsideAllowed.
+  ///
+  /// In es, this message translates to:
+  /// **'El dominio del correo ingresado no está permitido'**
+  String get emailDomainOutsideAllowed;
+
   /// No description provided for @passwordConfirmationIncorrect.
   ///
   /// In es, this message translates to:
@@ -144,6 +150,12 @@ abstract class FormuxLocalization {
   /// In es, this message translates to:
   /// **'La longitud debe ser de {length} carácteres'**
   String fixedLength(num length);
+
+  /// No description provided for @emailDomainNotAllowed.
+  ///
+  /// In es, this message translates to:
+  /// **'Solo se permite correo electrónico del dominio @{domain}'**
+  String emailDomainNotAllowed(String domain);
 }
 
 class _FormuxLocalizationDelegate extends LocalizationsDelegate<FormuxLocalization> {
