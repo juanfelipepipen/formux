@@ -6,17 +6,19 @@ import 'package:formux/formux.dart';
 class FormuxErrorText extends StatefulWidget {
   const FormuxErrorText({
     super.key,
-    required this.input,
     this.color,
+    this.style,
     this.fontWeight,
     this.letterSpacing,
     this.errors = true,
+    required this.input,
     this.align = TextAlign.left,
   });
 
   final FontWeight? fontWeight;
   final double? letterSpacing;
   final FormuxInput input;
+  final TextStyle? style;
   final TextAlign align;
   final Color? color;
   final bool errors;
@@ -62,11 +64,12 @@ class _FormuxErrorTextState extends State<FormuxErrorText> {
               child: Text(
                 error ?? '',
                 textAlign: widget.align,
-                style: TextStyle(
-                  fontWeight: widget.fontWeight,
-                  letterSpacing: widget.letterSpacing,
-                  color: widget.color ?? context.themeColors.error,
-                ),
+                style: widget.style ??
+                    TextStyle(
+                      fontWeight: widget.fontWeight,
+                      letterSpacing: widget.letterSpacing,
+                      color: widget.color ?? context.themeColors.error,
+                    ),
               ),
             )
           ],

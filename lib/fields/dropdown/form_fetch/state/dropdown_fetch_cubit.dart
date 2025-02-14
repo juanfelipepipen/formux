@@ -10,7 +10,7 @@ class DropdownFetchCubit extends CubitFetchResolver<DropdownState> {
   Valuable? initial;
 
   /// Initial fetcher
-  ValuableFetch? fetcher;
+  ValuableListFetchCallback? fetcher;
 
   /// Get items for dropdown list
   List<Valuable> get items {
@@ -29,10 +29,10 @@ class DropdownFetchCubit extends CubitFetchResolver<DropdownState> {
   }
 
   /// Load valuable list from fetcher
-  void load(ValuableFetch? fetcher) {
+  void load(ValuableListFetchCallback? fetcher) {
     if (fetcher != null && fetcher != this.fetcher) {
       this.fetcher = fetcher;
-      fetch(_fetcher(fetcher));
+      fetch(_fetcher(fetcher()));
     }
   }
 
@@ -42,7 +42,7 @@ class DropdownFetchCubit extends CubitFetchResolver<DropdownState> {
   }
 
   /// Fetcher for state
-  Future<DropdownState> _fetcher(ValuableFetch fetch) async {
+  Future<DropdownState> _fetcher(ValuableListFetch fetch) async {
     ValuableList list = await fetch;
     Valuable? value;
 

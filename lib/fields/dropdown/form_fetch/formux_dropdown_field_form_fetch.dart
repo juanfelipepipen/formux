@@ -2,8 +2,8 @@ import 'package:formux/fields/dropdown/form_fetch/state/dropdown_fetch_cubit.dar
 import 'package:formux/fields/dropdown/form_fetch/state/dropdown_listener.dart';
 import 'package:pipen/components/builders/builder/pipen_builder_when.dart';
 import 'package:pipen/bloc/listener/bloc_listener_fetch.dart';
+import 'package:formux/input_type/formux_valuable_type.dart';
 import 'package:pipen/bloc/builder/bloc_builder_fetch.dart';
-import 'package:formux/inputs/formux_input_valuable.dart';
 import 'package:pipen/components/gap/pipen_gap.dart';
 import 'package:pipen/components/row/pipen_row.dart';
 import 'package:pipen/abstract/loading_state.dart';
@@ -22,7 +22,7 @@ class FormuxDropdownFieldFormFetch extends StatefulWidget {
   });
 
   final Function(Valuable?)? onChange;
-  final FormuxInputValuable input;
+  final FormuxValuableType input;
   final String? label;
 
   @override

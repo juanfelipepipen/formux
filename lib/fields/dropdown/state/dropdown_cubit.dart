@@ -7,13 +7,24 @@ class DropdownCubit extends CubitFetchResolver<ValuableList> {
     return [];
   }
 
-  ValuableFetch? fetcher;
+  ValuableListFetchCallback? fetcher;
 
   /// Load valuable list from fetcher
-  void load(ValuableFetch? fetcher) {
+  void load(ValuableListFetchCallback? fetcher) {
     if (fetcher != null && fetcher != this.fetcher) {
       this.fetcher = fetcher;
-      fetch(fetcher);
+      fetch(fetcher());
+    }
+
+    if (fetcher == null && this.fetcher != null) {
+      empty();
+    }
+  }
+
+  /// Handle current fetcher
+  void refresh() {
+    if (fetcher case ValuableListFetchCallback fetcher) {
+      fetch(fetcher());
     }
   }
 

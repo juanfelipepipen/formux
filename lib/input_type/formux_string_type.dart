@@ -1,7 +1,7 @@
 import 'package:formux/formux.dart';
 
-abstract class FormuxInputString extends FormuxInput<String> {
-  FormuxInputString({super.value = '', super.required});
+abstract class FormuxStringType extends FormuxInput<String> {
+  FormuxStringType({super.value = '', super.required});
 
   String? get valueOrNull => value.isEmpty ? null : value;
 

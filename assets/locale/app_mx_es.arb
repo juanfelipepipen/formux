@@ -1,0 +1,39 @@
+{
+  "required": "Campo requerido",
+  "selectCountry": "Debe seleccionar un país",
+  "formatIncorrect": "El formato no es correcto",
+  "emailFormatIncorrect": "El formato no es correcto",
+  "passwordConfirmationIncorrect": "La contraseña de confirmación no es correcta",
+  "dateTimeAfterThan": "La fecha debe ser mayor a {dateTime}",
+  "@dateTimeAfterThan": {
+    "placeholders": {
+      "dateTime": {
+        "type": "String"
+      }
+    }
+  },
+  "minLength": "El valor mínimo permitido es {value}",
+  "@minLength": {
+    "placeholders": {
+      "value": {
+        "type": "num"
+      }
+    }
+  },
+  "maxLength": "La longitud máxima es de {max} carácteres",
+  "@maxLength": {
+    "placeholders": {
+      "max": {
+        "type": "num"
+      }
+    }
+  },
+  "fixedLength": "La longitud debe ser de {length} carácteres",
+  "@fixedLength": {
+    "placeholders": {
+      "length": {
+        "type": "num"
+      }
+    }
+  }
+}

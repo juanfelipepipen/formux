@@ -1,5 +1,5 @@
+import 'package:formux/input_type/formux_string_type.dart';
 import 'package:pipen/extensions/context_extension.dart';
-import 'package:formux/inputs/formux_input_string.dart';
 import 'package:pipen/components/gap/pipen_gap.dart';
 import 'package:flutter/material.dart';
 
@@ -8,8 +8,11 @@ class FormuxTextField extends StatefulWidget {
     super.key,
     this.style,
     this.border,
+    this.filled,
     this.minLines,
+    this.fillColor,
     this.suffixIcon,
+    this.onSubmitted,
     this.obscureText = false,
     this.contentPadding,
     required this.label,
@@ -21,8 +24,11 @@ class FormuxTextField extends StatefulWidget {
     super.key,
     this.style,
     this.border,
+    this.fillColor,
+    this.filled,
     this.minLines,
     this.suffixIcon,
+    this.onSubmitted,
     this.contentPadding,
     required this.label,
     required this.input,
@@ -33,7 +39,10 @@ class FormuxTextField extends StatefulWidget {
     super.key,
     this.style,
     this.border,
+    this.fillColor,
+    this.filled,
     this.suffixIcon,
+    this.onSubmitted,
     this.minLines = 3,
     this.obscureText = false,
     this.contentPadding,
@@ -44,11 +53,14 @@ class FormuxTextField extends StatefulWidget {
 
   final EdgeInsetsGeometry? contentPadding;
   final Function(String) onChange;
-  final FormuxInputString input;
+  final VoidCallback? onSubmitted;
+  final FormuxStringType input;
   final InputBorder? border;
   final Widget? suffixIcon;
   final TextStyle? style;
   final bool obscureText;
+  final Color? fillColor;
+  final bool? filled;
   final int? minLines;
   final String label;
 
@@ -108,20 +120,27 @@ class _FormuxTextFieldState extends State<FormuxTextField> {
           minLines: widget.minLines,
           onChanged: widget.onChange,
           maxLines: widget.minLines ?? 1,
+          onSubmitted: (_) {
+            widget.onSubmitted?.call();
+          },
           obscureText: widget.obscureText,
           decoration: InputDecoration(
-            contentPadding: widget.contentPadding,
             errorText: errorText,
+            filled: widget.filled,
             labelText: widget.label,
-            hintStyle: widget.style,
+            // hintStyle: widget.style,
             errorBorder: errorBorder,
+            fillColor: widget.fillColor,
             enabledBorder: widget.border,
             suffixIcon: widget.suffixIcon,
             focusedErrorBorder: errorBorder,
+            contentPadding: widget.contentPadding,
             focusColor: context.themeColors.primary,
             labelStyle: widget.style ?? TextStyle(),
             border: widget.border ?? const OutlineInputBorder(),
-            errorStyle: TextStyle(color: context.themeColors.error),
+            errorStyle: TextStyle(
+              color: context.themeColors.error,
+            ),
             floatingLabelStyle: widget.style?.copyWith(
               color: context.themeColors.primary,
             ),

@@ -1,6 +1,6 @@
 import 'package:formux/fields/dropdown/formux_dropdown_field_layout.dart';
 import 'package:formux/fields/dropdown/state/dropdown_cubit.dart';
-import 'package:formux/inputs/formux_input_valuable.dart';
+import 'package:formux/input_type/formux_valuable_type.dart';
 import 'package:pipen/components/gap/pipen_gap.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pipen/cubit/cubit_fetch.dart';
@@ -16,7 +16,7 @@ class FormuxDropdownFieldFetch extends StatefulWidget {
   });
 
   final Function(Valuable?)? onChange;
-  final FormuxInputValuable input;
+  final FormuxValuableType input;
   final String? label;
 
   @override

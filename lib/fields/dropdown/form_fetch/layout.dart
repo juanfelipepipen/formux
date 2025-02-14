@@ -9,7 +9,7 @@ class PipenDropdownFormLayout extends StatefulWidget {
   });
 
   final Function(Valuable?)? onChange;
-  final FormuxInputValuable input;
+  final FormuxValuableType input;
   final String? label;
 
   @override

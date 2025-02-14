@@ -1,7 +1,7 @@
 import 'package:pipen/components/builders/builder/pipen_builder_when.dart';
 import 'package:formux/fields/dropdown/state/dropdown_cubit.dart';
+import 'package:formux/input_type/formux_valuable_type.dart';
 import 'package:pipen/bloc/builder/bloc_builder_fetch.dart';
-import 'package:formux/inputs/formux_input_valuable.dart';
 import 'package:pipen/components/row/pipen_row.dart';
 import 'package:pipen/abstract/loading_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,7 +12,7 @@ class FormuxDropdownFieldLayout extends StatefulWidget {
   const FormuxDropdownFieldLayout({super.key, required this.input, this.label, this.onChange});
 
   final Function(Valuable)? onChange;
-  final FormuxInputValuable input;
+  final FormuxValuableType input;
   final String? label;
 
   @override
