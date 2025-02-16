@@ -1,3 +1,4 @@
+import 'package:formux/fields/text/formux_password_field.dart';
 import 'package:formux/input_type/formux_string_type.dart';
 import 'package:pipen/extensions/context_extension.dart';
 import 'package:pipen/components/gap/pipen_gap.dart';
@@ -50,6 +51,29 @@ class FormuxTextField extends StatefulWidget {
     required this.input,
     required this.onChange,
   });
+
+  static FormuxPasswordField password({
+    EdgeInsetsGeometry? contentPadding,
+    required Function(String) onChange,
+    VoidCallback? onSubmitted,
+    required FormuxStringType input,
+    InputBorder? border,
+    TextStyle? style,
+    Color? fillColor,
+    bool? filled,
+    String? label,
+  }) =>
+      FormuxPasswordField(
+        label: label,
+        input: input,
+        style: style,
+        border: border,
+        filled: filled,
+        onChange: onChange,
+        fillColor: fillColor,
+        onSubmitted: onSubmitted,
+        contentPadding: contentPadding,
+      );
 
   final EdgeInsetsGeometry? contentPadding;
   final Function(String) onChange;

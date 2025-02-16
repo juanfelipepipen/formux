@@ -118,7 +118,7 @@ abstract class FormuxLocalization {
   /// No description provided for @emailDomainOutsideAllowed.
   ///
   /// In es, this message translates to:
-  /// **'El dominio del correo ingresado no está permitido'**
+  /// **'El dominio del correo ingresado no se encuentra permitido'**
   String get emailDomainOutsideAllowed;
 
   /// No description provided for @passwordConfirmationIncorrect.
@@ -126,6 +126,12 @@ abstract class FormuxLocalization {
   /// In es, this message translates to:
   /// **'La contraseña de confirmación no es correcta'**
   String get passwordConfirmationIncorrect;
+
+  /// No description provided for @password.
+  ///
+  /// In es, this message translates to:
+  /// **'Contraseña'**
+  String get password;
 
   /// No description provided for @dateTimeAfterThan.
   ///

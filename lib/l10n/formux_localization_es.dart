@@ -19,10 +19,13 @@ class FormuxLocalizationEs extends FormuxLocalization {
   String get emailFormatIncorrect => 'El formato no es correcto';
 
   @override
-  String get emailDomainOutsideAllowed => 'El dominio del correo ingresado no está permitido';
+  String get emailDomainOutsideAllowed => 'El dominio del correo ingresado no se encuentra permitido';
 
   @override
   String get passwordConfirmationIncorrect => 'La contraseña de confirmación no es correcta';
+
+  @override
+  String get password => 'Contraseña';
 
   @override
   String dateTimeAfterThan(String dateTime) {

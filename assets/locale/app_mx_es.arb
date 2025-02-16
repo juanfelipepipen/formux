@@ -5,6 +5,7 @@
   "emailFormatIncorrect": "El formato no es correcto",
   "emailDomainOutsideAllowed": "El dominio del correo ingresado no se encuentra permitido",
   "passwordConfirmationIncorrect": "La contraseña de confirmación no es correcta",
+  "password": "Contraseña",
   "dateTimeAfterThan": "La fecha debe ser mayor a {dateTime}",
   "@dateTimeAfterThan": {
     "placeholders": {
