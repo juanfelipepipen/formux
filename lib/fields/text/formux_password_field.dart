@@ -10,6 +10,7 @@ class FormuxPasswordField extends StatefulWidget {
     this.style,
     this.filled,
     this.border,
+    this.enabled,
     this.fillColor,
     this.onSubmitted,
     this.contentPadding,
@@ -25,6 +26,7 @@ class FormuxPasswordField extends StatefulWidget {
   final InputBorder? border;
   final TextStyle? style;
   final Color? fillColor;
+  final bool? enabled;
   final String? label;
   final bool? filled;
 
@@ -42,15 +44,17 @@ class _FormuxPasswordFieldState extends State<FormuxPasswordField> {
   }
 
   @override
-  Widget build(BuildContext context) => FormuxTextField.obscureText(
+  Widget build(BuildContext context) => FormuxTextField(
         input: widget.input,
-        style: widget.style,
-        border: widget.border,
-        filled: widget.filled,
+        // style: widget.style,
+        // border: widget.border,
+        // filled: widget.filled,
         onChange: widget.onChange,
-        fillColor: widget.fillColor,
+        enabled: widget.enabled,
+        obscureText: !showPassword,
+        // fillColor: widget.fillColor,
         onSubmitted: widget.onSubmitted,
-        contentPadding: widget.contentPadding,
+        // contentPadding: widget.contentPadding,
         label: widget.label ?? FormuxLocalization.of(context)!.password,
         suffixIcon: IconButton(
           onPressed: () => setState(() => showPassword = !showPassword),

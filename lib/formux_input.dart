@@ -38,7 +38,8 @@ abstract class FormuxInput<T> {
   T get value => _value;
 
   /// [Constructor]
-  FormuxInput({required T value, this.required = true, this.displayOnUpdate = false}) : _value = value {
+  FormuxInput({required T value, this.required = true, this.displayOnUpdate = false})
+      : _value = value {
     validate();
     hideErrors();
   }
@@ -104,5 +105,10 @@ abstract class FormuxInput<T> {
   /// Hide input errors
   void hideErrors() {
     errors = false;
+  }
+
+  /// Convert current value to string
+  String valueToString() {
+    return value.toString();
   }
 }

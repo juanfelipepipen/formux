@@ -3,35 +3,44 @@ import 'package:formux/input_type/formux_string_type.dart';
 import 'package:pipen/extensions/context_extension.dart';
 import 'package:pipen/components/gap/pipen_gap.dart';
 import 'package:flutter/material.dart';
+import 'package:formux/formux.dart';
 
 class FormuxTextField extends StatefulWidget {
   const FormuxTextField({
     super.key,
     this.style,
+    this.label,
     this.border,
     this.filled,
+    this.enabled,
+    this.hintText,
     this.minLines,
     this.fillColor,
+    this.controller,
     this.suffixIcon,
     this.onSubmitted,
-    this.obscureText = false,
+    this.keyboardType,
     this.contentPadding,
-    required this.label,
     required this.input,
     required this.onChange,
+    this.obscureText = false,
   });
 
   const FormuxTextField.obscureText({
     super.key,
     this.style,
+    this.label,
     this.border,
-    this.fillColor,
     this.filled,
+    this.enabled,
     this.minLines,
+    this.hintText,
+    this.fillColor,
+    this.controller,
     this.suffixIcon,
     this.onSubmitted,
+    this.keyboardType,
     this.contentPadding,
-    required this.label,
     required this.input,
     required this.onChange,
   }) : obscureText = true;
@@ -39,36 +48,42 @@ class FormuxTextField extends StatefulWidget {
   const FormuxTextField.textArea({
     super.key,
     this.style,
+    this.label,
     this.border,
-    this.fillColor,
     this.filled,
+    this.enabled,
+    this.hintText,
+    this.fillColor,
+    this.controller,
     this.suffixIcon,
     this.onSubmitted,
     this.minLines = 3,
-    this.obscureText = false,
+    this.keyboardType,
     this.contentPadding,
-    required this.label,
     required this.input,
     required this.onChange,
+    this.obscureText = false,
   });
 
   static FormuxPasswordField password({
     EdgeInsetsGeometry? contentPadding,
     required Function(String) onChange,
-    VoidCallback? onSubmitted,
     required FormuxStringType input,
+    VoidCallback? onSubmitted,
     InputBorder? border,
     TextStyle? style,
     Color? fillColor,
-    bool? filled,
     String? label,
+    bool? filled,
+    enabled,
   }) =>
       FormuxPasswordField(
         label: label,
         input: input,
         style: style,
-        border: border,
         filled: filled,
+        border: border,
+        enabled: enabled,
         onChange: onChange,
         fillColor: fillColor,
         onSubmitted: onSubmitted,
@@ -76,17 +91,20 @@ class FormuxTextField extends StatefulWidget {
       );
 
   final EdgeInsetsGeometry? contentPadding;
+  final TextEditingController? controller;
+  final TextInputType? keyboardType;
   final Function(String) onChange;
   final VoidCallback? onSubmitted;
-  final FormuxStringType input;
+  final bool? filled, enabled;
   final InputBorder? border;
   final Widget? suffixIcon;
+  final FormuxInput input;
   final TextStyle? style;
+  final String? hintText;
   final bool obscureText;
   final Color? fillColor;
-  final bool? filled;
   final int? minLines;
-  final String label;
+  final String? label;
 
   @override
   State<FormuxTextField> createState() => _FormuxTextFieldState();
@@ -94,7 +112,6 @@ class FormuxTextField extends StatefulWidget {
 
 class _FormuxTextFieldState extends State<FormuxTextField> {
   late TextEditingController controller;
-  InputBorder? errorBorder;
 
   String? get errorText => widget.input.display ? widget.input.error : null;
 
@@ -106,25 +123,6 @@ class _FormuxTextFieldState extends State<FormuxTextField> {
   }
 
   @override
-  void didChangeDependencies() {
-    initInputBorder();
-    super.didChangeDependencies();
-  }
-
-  /// Set the default border
-  void initInputBorder() {
-    final defaultBorder = OutlineInputBorder(
-      borderSide: BorderSide(color: context.themeColors.error, width: 2.0),
-    );
-
-    final widgetBorder = widget.border?.copyWith(
-      borderSide: BorderSide(color: context.themeColors.error, width: 2.0),
-    );
-
-    setState(() => errorBorder = widgetBorder ?? defaultBorder);
-  }
-
-  @override
   void didUpdateWidget(covariant FormuxTextField oldWidget) {
     super.didUpdateWidget(oldWidget);
     updateText();
@@ -132,39 +130,38 @@ class _FormuxTextFieldState extends State<FormuxTextField> {
 
   /// Compare and update text in text controller
   void updateText() {
-    if (widget.input.value != controller.text) {
-      setState(() => controller.text = widget.input.value);
+    if (widget.input.valueToString() != controller.text) {
+      setState(() => controller.text = widget.input.valueToString());
     }
   }
 
   @override
   Widget build(BuildContext context) => PipenGap.small(
-        child: TextField(
-          controller: controller,
+        child: TextFormField(
+          enabled: widget.enabled,
           minLines: widget.minLines,
           onChanged: widget.onChange,
           maxLines: widget.minLines ?? 1,
-          onSubmitted: (_) {
+          obscureText: widget.obscureText,
+          keyboardType: widget.keyboardType,
+          controller: widget.controller ?? controller,
+          onFieldSubmitted: (_) {
             widget.onSubmitted?.call();
           },
-          obscureText: widget.obscureText,
           decoration: InputDecoration(
             errorText: errorText,
+            border: widget.border,
             filled: widget.filled,
             labelText: widget.label,
-            // hintStyle: widget.style,
-            errorBorder: errorBorder,
+            hintStyle: widget.style,
+            labelStyle: widget.style,
+            hintText: widget.hintText,
             fillColor: widget.fillColor,
             enabledBorder: widget.border,
             suffixIcon: widget.suffixIcon,
-            focusedErrorBorder: errorBorder,
             contentPadding: widget.contentPadding,
             focusColor: context.themeColors.primary,
-            labelStyle: widget.style ?? TextStyle(),
-            border: widget.border ?? const OutlineInputBorder(),
-            errorStyle: TextStyle(
-              color: context.themeColors.error,
-            ),
+            errorStyle: TextStyle(color: context.themeColors.error),
             floatingLabelStyle: widget.style?.copyWith(
               color: context.themeColors.primary,
             ),

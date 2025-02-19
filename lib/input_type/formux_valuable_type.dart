@@ -4,7 +4,7 @@ import 'package:formux/formux.dart';
 abstract class FormuxValuableType extends FormuxInput<Valuable?> {
   FormuxValuableType({required super.value, List<Valuable>? items, super.required, this.fetch}) {
     if (items != null) {
-      items = items;
+      this.items = items;
     }
   }
 
