@@ -19,14 +19,14 @@ class _LayoutState extends State<Layout> {
     super.initState();
     controller = TextEditingController();
     if (widget.input.fetch != null) {
-      context.read<FormuxDropdownFetchCubit>().load(widget.input.fetch);
+      context.read<DropdownCubit>().load(widget.input.fetch);
     }
   }
 
   @override
   void didUpdateWidget(covariant Layout oldWidget) {
     super.didUpdateWidget(oldWidget);
-    context.read<FormuxDropdownFetchCubit>().load(widget.input.fetch);
+    context.read<DropdownCubit>().load(widget.input.fetch);
 
     if (widget.input.valueFromItems == null) {
       setState(() => controller = TextEditingController());
@@ -36,12 +36,12 @@ class _LayoutState extends State<Layout> {
   /// On change selection
   void onChange(Valuable? value) {
     if (value != null) {
-      widget.onChange(ValuableSetValue(value: value));
+      widget.onChange(DropdownSetValue(value: value));
     }
   }
 
   @override
-  Widget build(BuildContext context) => BlocBuilderFetch<FormuxDropdownFetchCubit, ValuableList>(
+  Widget build(BuildContext context) => DropdownBuilder(
         builder: (context, state, bloc) => Padding(
           padding: EdgeInsets.symmetric(vertical: 7),
           child: LayoutBuilder(

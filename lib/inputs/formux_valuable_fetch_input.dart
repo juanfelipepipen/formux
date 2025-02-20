@@ -1,8 +1,10 @@
+import 'package:formux/abstract/state/dropdown_input_event.dart';
 import 'package:formux/input_type/formux_valuable_type.dart';
 import 'package:formux/mixin/translations_mixin.dart';
 import 'package:pipen/valuable/valuable.dart';
 
-typedef OnValuableEventChange = Function(ValuableInputEvent);
+typedef InputEvent = DropdownInputEvent<Valuable>;
+typedef OnValuableEventChange = Function(InputEvent);
 
 class FormuxValuableFetchInput extends FormuxValuableType with Translations {
   FormuxValuableFetchInput({super.value, super.items, super.fetch, super.required});
@@ -19,24 +21,23 @@ class FormuxValuableFetchInput extends FormuxValuableType with Translations {
   }
 
   /// Set input event
-  void event(ValuableInputEvent event) {
-    if (event case ValuableSetValue event) {
+  void event(InputEvent event) {
+    if (event case DropdownSetValue<Valuable> event) {
       value = event.value;
     }
 
-    if (event case ValuableSetItems event) {
+    if (event case DropdownSetItems<Valuable> event) {
       items = event.items;
     }
 
-    if (event case ValuableSetFetch event) {
+    if (event case DropdownSetFetch<Valuable> event) {
       fetch = event.fetch;
       items = [];
     }
 
-    if (event case ValuableSetFetchClear event) {
+    if (event case DropdownSetFetchClear<Valuable> event) {
       value = null;
       fetch = event.fetch;
-      hideErrors();
     }
   }
 
@@ -63,30 +64,4 @@ class FormuxValuableFetchInput extends FormuxValuableType with Translations {
       }
     }
   }
-}
-
-sealed class ValuableInputEvent {}
-
-class ValuableSetValue extends ValuableInputEvent {
-  ValuableSetValue({required this.value});
-
-  Valuable value;
-}
-
-class ValuableSetItems extends ValuableInputEvent {
-  ValuableSetItems({required this.items});
-
-  ValuableList items;
-}
-
-class ValuableSetFetch extends ValuableInputEvent {
-  ValuableSetFetch({required this.fetch});
-
-  ValuableListFetchCallback fetch;
-}
-
-class ValuableSetFetchClear extends ValuableInputEvent {
-  ValuableSetFetchClear({required this.fetch});
-
-  ValuableListFetchCallback fetch;
 }
