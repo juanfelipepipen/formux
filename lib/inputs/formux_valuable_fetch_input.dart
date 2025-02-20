@@ -3,8 +3,8 @@ import 'package:formux/input_type/formux_valuable_type.dart';
 import 'package:formux/mixin/translations_mixin.dart';
 import 'package:pipen/valuable/valuable.dart';
 
-typedef InputEvent = DropdownInputEvent<Valuable>;
-typedef OnValuableEventChange = Function(InputEvent);
+typedef ValuableInputEvent = DropdownInputEvent<Valuable>;
+typedef OnValuableEventChange = Function(ValuableInputEvent);
 
 class FormuxValuableFetchInput extends FormuxValuableType with Translations {
   FormuxValuableFetchInput({super.value, super.items, super.fetch, super.required});
@@ -21,7 +21,7 @@ class FormuxValuableFetchInput extends FormuxValuableType with Translations {
   }
 
   /// Set input event
-  void event(InputEvent event) {
+  void event(ValuableInputEvent event) {
     if (event case DropdownSetValue<Valuable> event) {
       value = event.value;
     }
