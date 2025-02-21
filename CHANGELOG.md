@@ -1,3 +1,7 @@
+* ## 1.0.0
+
+* FormuxInputErrors support
+
 * ## 0.0.9
 
 * InputErrors support in CubitForm

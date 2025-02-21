@@ -1,3 +1,5 @@
+import 'package:formux/exceptions/input_errors_exception.dart';
+import 'package:formux/abstract/formux_input_ids.dart';
 import 'package:formux/abstract/formux_copy.dart';
 import 'package:formux/formux.dart';
 import 'package:bloc/bloc.dart';
@@ -25,5 +27,15 @@ abstract class CubitForm<F extends Formux> extends Cubit<F> {
     } else {
       throw Exception("FormuxCopy is not defined in ${F.runtimeType}");
     }
+  }
+
+  /// Add error to form with id
+  void inputErrors(InputErrorsException inputErrors) {
+    final form = _copyForm();
+
+    if (form case FormuxInputIds inputIds) {
+      inputErrors.form(inputIds);
+    }
+    emit(form);
   }
 }
