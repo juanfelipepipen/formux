@@ -1,6 +1,6 @@
 # This is a generated file; do not edit or check into version control.
-device_info_plus=/Users/juanfelipelopezestrada/.pub-cache/hosted/pub.dev/device_info_plus-11.2.1/
-file_picker=/Users/juanfelipelopezestrada/.pub-cache/hosted/pub.dev/file_picker-8.1.7/
+device_info_plus=/Users/juanfelipelopezestrada/.pub-cache/hosted/pub.dev/device_info_plus-11.3.0/
+file_picker=/Users/juanfelipelopezestrada/.pub-cache/hosted/pub.dev/file_picker-9.0.0/
 flutter_plugin_android_lifecycle=/Users/juanfelipelopezestrada/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.24/
 flutter_secure_storage=/Users/juanfelipelopezestrada/.pub-cache/hosted/pub.dev/flutter_secure_storage-9.2.4/
 flutter_secure_storage_linux=/Users/juanfelipelopezestrada/.pub-cache/hosted/pub.dev/flutter_secure_storage_linux-1.2.2/
@@ -12,4 +12,4 @@ path_provider_android=/Users/juanfelipelopezestrada/.pub-cache/hosted/pub.dev/pa
 path_provider_foundation=/Users/juanfelipelopezestrada/.pub-cache/hosted/pub.dev/path_provider_foundation-2.4.1/
 path_provider_linux=/Users/juanfelipelopezestrada/.pub-cache/hosted/pub.dev/path_provider_linux-2.2.1/
 path_provider_windows=/Users/juanfelipelopezestrada/.pub-cache/hosted/pub.dev/path_provider_windows-2.3.0/
-vibration=/Users/juanfelipelopezestrada/.pub-cache/hosted/pub.dev/vibration-3.0.0/
+vibration=/Users/juanfelipelopezestrada/.pub-cache/hosted/pub.dev/vibration-3.1.3/

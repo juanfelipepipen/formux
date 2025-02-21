@@ -1,15 +1,14 @@
 name: formux
-version: 0.0.9
+version: 0.0.10
 description: "Form validator system"
 homepage: "https://formux.pipen.dev"
 repository: "https://github.com/juanfelipepipen/formux"
 
 environment:
-  sdk: ^3.5.4
+  sdk: ^3.7.0
   flutter: ">=1.17.0"
 
 dependencies:
-  bloc: ^9.0.0
   flutter:
     sdk: flutter
   flutter_bloc: ^9.0.0
@@ -17,14 +16,17 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  #  pipen: ^0.0.25
-  pipen:
-    path: ../pipen-library
-  cloux:
-    path: ../cloux
-  intl: ^0.19.0
+  bloc: ^9.0.0
+  intl: any
+  pipen_bloc: any
+  pipen: ^0.0.29
   email_validator: ^3.0.0
   flutter_skeleton_ui: ^0.0.6
+
+#  pipen:
+#    path: ../pipen-library
+#  cloux:
+#    path: ../cloux
 
 dev_dependencies:
   flutter_test:
