@@ -18,13 +18,16 @@ dependencies:
 
   intl: any
   bloc: ^9.0.0
-  pipen: ^1.0.0
-  pipen_bloc: any
+#  pipen: ^1.0.0
+#  pipen_bloc: any
   email_validator: ^3.0.0
   flutter_skeleton_ui: ^0.0.6
 
-#  pipen:
-#    path: ../pipen-library
+  pipen:
+    path: ../pipen-library
+
+  pipen_bloc:
+    path: ../pipen_bloc
 
 dev_dependencies:
   flutter_test:

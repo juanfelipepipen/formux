@@ -29,6 +29,7 @@ class FormuxInputContainer extends StatefulWidget {
   final Widget? child;
   final String label;
 
+
   String? get errorText => input.display ? input.error : null;
 
   bool get hasError => errorText != null;
