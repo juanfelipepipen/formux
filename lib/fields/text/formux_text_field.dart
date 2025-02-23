@@ -76,19 +76,18 @@ class FormuxTextField extends StatefulWidget {
     String? label,
     bool? filled,
     enabled,
-  }) =>
-      FormuxPasswordField(
-        label: label,
-        input: input,
-        style: style,
-        filled: filled,
-        border: border,
-        enabled: enabled,
-        onChange: onChange,
-        fillColor: fillColor,
-        onSubmitted: onSubmitted,
-        contentPadding: contentPadding,
-      );
+  }) => FormuxPasswordField(
+    label: label,
+    input: input,
+    style: style,
+    filled: filled,
+    border: border,
+    enabled: enabled,
+    onChange: onChange,
+    fillColor: fillColor,
+    onSubmitted: onSubmitted,
+    contentPadding: contentPadding,
+  );
 
   final EdgeInsetsGeometry? contentPadding;
   final TextEditingController? controller;
@@ -137,35 +136,33 @@ class _FormuxTextFieldState extends State<FormuxTextField> {
 
   @override
   Widget build(BuildContext context) => PipenGap.small(
-        child: TextFormField(
-          enabled: widget.enabled,
-          minLines: widget.minLines,
-          onChanged: widget.onChange,
-          maxLines: widget.minLines ?? 1,
-          obscureText: widget.obscureText,
-          keyboardType: widget.keyboardType,
-          controller: widget.controller ?? controller,
-          onFieldSubmitted: (_) {
-            widget.onSubmitted?.call();
-          },
-          decoration: InputDecoration(
-            errorText: errorText,
-            border: widget.border,
-            filled: widget.filled,
-            labelText: widget.label,
-            hintStyle: widget.style,
-            labelStyle: widget.style,
-            hintText: widget.hintText,
-            fillColor: widget.fillColor,
-            enabledBorder: widget.border,
-            suffixIcon: widget.suffixIcon,
-            contentPadding: widget.contentPadding,
-            focusColor: context.themeColors.primary,
-            errorStyle: TextStyle(color: context.themeColors.error),
-            floatingLabelStyle: widget.style?.copyWith(
-              color: context.themeColors.primary,
-            ),
-          ),
-        ),
-      );
+    child: TextFormField(
+      enabled: widget.enabled,
+      minLines: widget.minLines,
+      onChanged: widget.onChange,
+      maxLines: widget.minLines ?? 1,
+      obscureText: widget.obscureText,
+      keyboardType: widget.keyboardType,
+      controller: widget.controller ?? controller,
+      onFieldSubmitted: (_) {
+        widget.onSubmitted?.call();
+      },
+      decoration: InputDecoration(
+        errorText: errorText,
+        border: widget.border,
+        filled: widget.filled,
+        labelText: widget.label,
+        hintStyle: widget.style,
+        labelStyle: widget.style,
+        hintText: widget.hintText,
+        fillColor: widget.fillColor,
+        enabledBorder: widget.border,
+        suffixIcon: widget.suffixIcon,
+        contentPadding: widget.contentPadding,
+        focusColor: context.themeColors.primary,
+        errorStyle: TextStyle(color: context.themeColors.error),
+        floatingLabelStyle: widget.style?.copyWith(color: context.themeColors.primary),
+      ),
+    ),
+  );
 }

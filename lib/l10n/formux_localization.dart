@@ -1,11 +1,9 @@
-import 'dart:async';
-
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart' as intl;
-
+import 'package:flutter/widgets.dart';
 import 'formux_localization_es.dart';
+import 'dart:async';
 
 // ignore_for_file: type=lint
 

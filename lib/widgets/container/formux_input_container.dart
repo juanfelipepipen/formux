@@ -4,15 +4,16 @@ import 'package:pipen/components/gap/pipen_gap.dart';
 import 'package:flutter/material.dart';
 import 'package:formux/formux.dart';
 
-class FormuxInputContainer extends StatefulWidget {
+class FormuxInputContainer extends StatelessWidget {
   const FormuxInputContainer({
     super.key,
     this.child,
     this.onTap,
     this.style,
     this.border,
-    this.errorBorder,
+    this.enabled,
     this.suffixIcon,
+    this.errorBorder,
     this.contentPadding,
     required this.label,
     required this.input,
@@ -27,44 +28,38 @@ class FormuxInputContainer extends StatefulWidget {
   final FormuxInput input;
   final TextStyle? style;
   final Widget? child;
+  final bool? enabled;
   final String label;
-
 
   String? get errorText => input.display ? input.error : null;
 
   bool get hasError => errorText != null;
-
-  @override
-  State<FormuxInputContainer> createState() => _FormuxInputContainerState();
-}
-
-class _FormuxInputContainerState extends State<FormuxInputContainer> {
   @override
   Widget build(BuildContext context) => PipenGap.small(
-        child: PipenGestureTap(
-          onTap: widget.onTap,
-          child: InputDecorator(
-            decoration: InputDecoration(
-              labelText: widget.label,
-              errorText: widget.errorText,
-              enabledBorder: widget.border,
-              suffixIcon: widget.suffixIcon,
-              contentPadding: widget.contentPadding,
-              focusedErrorBorder: widget.errorBorder,
-              border: context.theme.inputDecorationTheme.border,
-              floatingLabelBehavior: widget.floatingLabelBehavior,
-              errorStyle: TextStyle(color: context.themeColors.error),
-              errorBorder: context.theme.inputDecorationTheme.errorBorder,
-              focusedBorder: context.theme.inputDecorationTheme.focusedBorder,
-              floatingLabelStyle: widget.style?.copyWith(
-                color: context.themeColors.primary,
-              ),
-              labelStyle: widget.input.display
+    child: PipenGestureTap(
+      onTap: onTap,
+      child: InputDecorator(
+        decoration: InputDecoration(
+          labelText: label,
+          errorText: errorText,
+          enabledBorder: border,
+          suffixIcon: suffixIcon,
+          enabled: enabled ?? true,
+          contentPadding: contentPadding,
+          focusedErrorBorder: errorBorder,
+          floatingLabelBehavior: floatingLabelBehavior,
+          border: context.theme.inputDecorationTheme.border,
+          errorStyle: TextStyle(color: context.themeColors.error),
+          errorBorder: context.theme.inputDecorationTheme.errorBorder,
+          focusedBorder: context.theme.inputDecorationTheme.focusedBorder,
+          floatingLabelStyle: style?.copyWith(color: context.themeColors.primary),
+          labelStyle:
+              input.display
                   ? context.theme.inputDecorationTheme.hintStyle
                   : context.theme.inputDecorationTheme.hintStyle,
-            ),
-            child: widget.child,
-          ),
         ),
-      );
+        child: child,
+      ),
+    ),
+  );
 }
