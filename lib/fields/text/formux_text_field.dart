@@ -1,3 +1,4 @@
+import 'package:formux/widgets/container/formux_controller_container.dart';
 import 'package:formux/fields/text/formux_password_field.dart';
 import 'package:formux/input_type/formux_string_type.dart';
 import 'package:pipen/extensions/context_extension.dart';
@@ -5,11 +6,12 @@ import 'package:pipen/components/gap/pipen_gap.dart';
 import 'package:flutter/material.dart';
 import 'package:formux/formux.dart';
 
-class FormuxTextField extends StatefulWidget {
+class FormuxTextField extends StatelessWidget {
   const FormuxTextField({
     super.key,
     this.style,
     this.label,
+    this.icon,
     this.border,
     this.filled,
     this.enabled,
@@ -30,6 +32,7 @@ class FormuxTextField extends StatefulWidget {
     super.key,
     this.style,
     this.label,
+    this.icon,
     this.border,
     this.filled,
     this.enabled,
@@ -49,6 +52,7 @@ class FormuxTextField extends StatefulWidget {
     super.key,
     this.style,
     this.label,
+    this.icon,
     this.border,
     this.filled,
     this.enabled,
@@ -94,9 +98,9 @@ class FormuxTextField extends StatefulWidget {
   final TextInputType? keyboardType;
   final Function(String) onChange;
   final VoidCallback? onSubmitted;
+  final Widget? suffixIcon, icon;
   final bool? filled, enabled;
   final InputBorder? border;
-  final Widget? suffixIcon;
   final FormuxInput input;
   final TextStyle? style;
   final String? hintText;
@@ -106,63 +110,39 @@ class FormuxTextField extends StatefulWidget {
   final String? label;
 
   @override
-  State<FormuxTextField> createState() => _FormuxTextFieldState();
-}
-
-class _FormuxTextFieldState extends State<FormuxTextField> {
-  late TextEditingController controller;
-
-  String? get errorText => widget.input.display ? widget.input.error : null;
-
-  @override
-  void initState() {
-    controller = TextEditingController();
-    updateText();
-    super.initState();
-  }
-
-  @override
-  void didUpdateWidget(covariant FormuxTextField oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    updateText();
-  }
-
-  /// Compare and update text in text controller
-  void updateText() {
-    if (widget.input.valueToString() != controller.text) {
-      setState(() => controller.text = widget.input.valueToString());
-    }
-  }
-
-  @override
   Widget build(BuildContext context) => PipenGap.small(
-    child: TextFormField(
-      enabled: widget.enabled,
-      minLines: widget.minLines,
-      onChanged: widget.onChange,
-      maxLines: widget.minLines ?? 1,
-      obscureText: widget.obscureText,
-      keyboardType: widget.keyboardType,
-      controller: widget.controller ?? controller,
-      onFieldSubmitted: (_) {
-        widget.onSubmitted?.call();
-      },
-      decoration: InputDecoration(
-        errorText: errorText,
-        border: widget.border,
-        filled: widget.filled,
-        labelText: widget.label,
-        hintStyle: widget.style,
-        labelStyle: widget.style,
-        hintText: widget.hintText,
-        fillColor: widget.fillColor,
-        enabledBorder: widget.border,
-        suffixIcon: widget.suffixIcon,
-        contentPadding: widget.contentPadding,
-        focusColor: context.themeColors.primary,
-        errorStyle: TextStyle(color: context.themeColors.error),
-        floatingLabelStyle: widget.style?.copyWith(color: context.themeColors.primary),
-      ),
+    child: FormuxControllerContainer(
+      input: input,
+      builder:
+          (context, formuxController, errorText) => TextFormField(
+            enabled: enabled,
+            minLines: minLines,
+            onChanged: onChange,
+            maxLines: minLines ?? 1,
+            obscureText: obscureText,
+            keyboardType: keyboardType,
+            controller: controller ?? formuxController,
+            onFieldSubmitted: (_) {
+              onSubmitted?.call();
+            },
+            decoration: InputDecoration(
+              icon: icon,
+              border: border,
+              filled: filled,
+              labelText: label,
+              hintStyle: style,
+              labelStyle: style,
+              hintText: hintText,
+              fillColor: fillColor,
+              errorText: errorText,
+              enabledBorder: border,
+              suffixIcon: suffixIcon,
+              contentPadding: contentPadding,
+              focusColor: context.themeColors.primary,
+              errorStyle: TextStyle(color: context.themeColors.error),
+              floatingLabelStyle: style?.copyWith(color: context.themeColors.primary),
+            ),
+          ),
     ),
   );
 }

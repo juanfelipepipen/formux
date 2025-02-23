@@ -1,8 +1,12 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'formux_localization.dart';
+
+// ignore_for_file: type=lint
 
 /// The translations for Spanish Castilian (`es`).
 class FormuxLocalizationEs extends FormuxLocalization {
-  FormuxLocalizationEs([super.locale = 'es']);
+  FormuxLocalizationEs([String locale = 'es']) : super(locale);
 
   @override
   String get required => 'Campo requerido';
@@ -17,8 +21,7 @@ class FormuxLocalizationEs extends FormuxLocalization {
   String get emailFormatIncorrect => 'El formato no es correcto';
 
   @override
-  String get emailDomainOutsideAllowed =>
-      'El dominio del correo ingresado no se encuentra permitido';
+  String get emailDomainOutsideAllowed => 'El dominio del correo ingresado no se encuentra permitido';
 
   @override
   String get passwordConfirmationIncorrect => 'La contraseña de confirmación no es correcta';
