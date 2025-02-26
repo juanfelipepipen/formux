@@ -8,7 +8,7 @@ class FormuxBooleanInput extends FormuxInput<bool> with Translations {
 
   @override
   void validator() {
-    assertion(!value, 'FormuxError.boxSelectionRequired.locale');
+    assertion(!value, translations.required);
   }
 
   @override
