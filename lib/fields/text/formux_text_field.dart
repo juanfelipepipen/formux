@@ -12,12 +12,19 @@ class FormuxTextField extends StatelessWidget {
     this.style,
     this.label,
     this.icon,
+    this.prefix,
+    this.suffix,
     this.border,
     this.filled,
     this.enabled,
     this.hintText,
+    this.hintStyle,
     this.minLines,
     this.fillColor,
+    this.prefixText,
+    this.suffixText,
+    this.prefixIcon,
+    this.helperText,
     this.controller,
     this.suffixIcon,
     this.onSubmitted,
@@ -26,6 +33,7 @@ class FormuxTextField extends StatelessWidget {
     required this.input,
     required this.onChange,
     this.obscureText = false,
+    this.floatingLabelBehavior,
   });
 
   const FormuxTextField.obscureText({
@@ -33,19 +41,27 @@ class FormuxTextField extends StatelessWidget {
     this.style,
     this.label,
     this.icon,
+    this.prefix,
+    this.suffix,
     this.border,
     this.filled,
     this.enabled,
     this.minLines,
     this.hintText,
+    this.hintStyle,
     this.fillColor,
+    this.prefixIcon,
+    this.prefixText,
+    this.suffixText,
     this.controller,
+    this.helperText,
     this.suffixIcon,
     this.onSubmitted,
     this.keyboardType,
     this.contentPadding,
     required this.input,
     required this.onChange,
+    this.floatingLabelBehavior,
   }) : obscureText = true;
 
   const FormuxTextField.textArea({
@@ -54,10 +70,17 @@ class FormuxTextField extends StatelessWidget {
     this.label,
     this.icon,
     this.border,
+    this.prefix,
+    this.suffix,
     this.filled,
     this.enabled,
     this.hintText,
+    this.hintStyle,
+    this.prefixIcon,
     this.fillColor,
+    this.prefixText,
+    this.suffixText,
+    this.helperText,
     this.controller,
     this.suffixIcon,
     this.onSubmitted,
@@ -67,6 +90,7 @@ class FormuxTextField extends StatelessWidget {
     required this.input,
     required this.onChange,
     this.obscureText = false,
+    this.floatingLabelBehavior,
   });
 
   static FormuxPasswordField password({
@@ -93,21 +117,22 @@ class FormuxTextField extends StatelessWidget {
     contentPadding: contentPadding,
   );
 
+  final Widget? suffixIcon, icon, prefixIcon, prefix, suffix;
+  final String? label, prefixText, suffixText, helperText;
+  final FloatingLabelBehavior? floatingLabelBehavior;
   final EdgeInsetsGeometry? contentPadding;
   final TextEditingController? controller;
   final TextInputType? keyboardType;
+  final TextStyle? style, hintStyle;
   final Function(String) onChange;
   final VoidCallback? onSubmitted;
-  final Widget? suffixIcon, icon;
   final bool? filled, enabled;
   final InputBorder? border;
   final FormuxInput input;
-  final TextStyle? style;
   final String? hintText;
   final bool obscureText;
   final Color? fillColor;
   final int? minLines;
-  final String? label;
 
   @override
   Widget build(BuildContext context) => PipenGap.small(
@@ -122,23 +147,28 @@ class FormuxTextField extends StatelessWidget {
             obscureText: obscureText,
             keyboardType: keyboardType,
             controller: controller ?? formuxController,
-            onFieldSubmitted: (_) {
-              onSubmitted?.call();
-            },
+            onFieldSubmitted: (_) => onSubmitted?.call(),
             decoration: InputDecoration(
               icon: icon,
               border: border,
               filled: filled,
+              prefix: prefix,
+              suffix: suffix,
               labelText: label,
-              hintStyle: style,
               labelStyle: style,
               hintText: hintText,
               fillColor: fillColor,
               errorText: errorText,
               enabledBorder: border,
+              prefixText: prefixText,
+              prefixIcon: prefixIcon,
+              suffixText: suffixText,
+              helperText: helperText,
               suffixIcon: suffixIcon,
+              hintStyle: hintStyle ?? style,
               contentPadding: contentPadding,
               focusColor: context.themeColors.primary,
+              floatingLabelBehavior: floatingLabelBehavior,
               errorStyle: TextStyle(color: context.themeColors.error),
               floatingLabelStyle: style?.copyWith(color: context.themeColors.primary),
             ),

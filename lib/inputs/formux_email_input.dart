@@ -3,7 +3,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:formux/mixin/translations_mixin.dart';
 
 class FormuxEmailInput extends FormuxStringType with Translations {
-  FormuxEmailInput() : super(value: '');
+  FormuxEmailInput({super.required, super.value});
 
   @override
   void clear() {
@@ -19,8 +19,8 @@ class FormuxEmailInput extends FormuxStringType with Translations {
       final emailValid = EmailValidator.validate(value);
       assertion(!emailValid, translations.emailFormatIncorrect);
 
-      if (emailValid && this is FormuxEmailAbstract) {
-        _validateDomains((this as FormuxEmailAbstract).allowedDomains);
+      if (emailValid && this is FormuxEmailAllowedDomains) {
+        _validateDomains((this as FormuxEmailAllowedDomains).allowedDomains);
       }
     }
   }
@@ -38,8 +38,10 @@ class FormuxEmailInput extends FormuxStringType with Translations {
       assertion(!value.endsWith('@$domain'), translations.emailDomainOutsideAllowed);
     }
   }
+
+  FormuxEmailInput copy() => FormuxEmailInput(required: required, value: value);
 }
 
-abstract class FormuxEmailAbstract extends FormuxEmailInput {
+abstract class FormuxEmailAllowedDomains extends FormuxEmailInput {
   List<String> get allowedDomains;
 }

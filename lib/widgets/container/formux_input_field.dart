@@ -49,6 +49,8 @@ class FormuxInputField extends StatelessWidget {
     floatingLabelBehavior: _floatingLabelBehavior,
     child: Text(
       _value ?? label,
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
       style:
           _value == null || enabled == false
               ? context.theme.inputDecorationTheme.hintStyle
