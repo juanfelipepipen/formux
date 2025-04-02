@@ -52,7 +52,7 @@ class FormuxInputContainer extends StatelessWidget {
           errorStyle: TextStyle(color: context.themeColors.error),
           errorBorder: context.theme.inputDecorationTheme.errorBorder,
           focusedBorder: context.theme.inputDecorationTheme.focusedBorder,
-          floatingLabelStyle: style?.copyWith(color: context.themeColors.primary),
+          floatingLabelStyle: context.theme.inputDecorationTheme.floatingLabelStyle,
           labelStyle:
               input.display
                   ? context.theme.inputDecorationTheme.hintStyle

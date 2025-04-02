@@ -12,6 +12,7 @@ class FormuxValuableFetchInput extends FormuxValuableType with Translations {
   @override
   void clear() {
     value = null;
+    fetch = null;
     hideErrors();
   }
 
@@ -33,11 +34,13 @@ class FormuxValuableFetchInput extends FormuxValuableType with Translations {
     if (event case DropdownSetFetch<Valuable> event) {
       fetch = event.fetch;
       items = [];
+      hideErrors();
     }
 
     if (event case DropdownSetFetchClear<Valuable> event) {
       value = null;
       fetch = event.fetch;
+      hideErrors();
     }
   }
 

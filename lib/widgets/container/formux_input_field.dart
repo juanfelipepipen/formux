@@ -53,8 +53,10 @@ class FormuxInputField extends StatelessWidget {
       overflow: TextOverflow.ellipsis,
       style:
           _value == null || enabled == false
-              ? context.theme.inputDecorationTheme.hintStyle
-              : context.textTheme.bodyLarge,
+              ? (input?.display == true
+                  ? context.theme.inputDecorationTheme.errorStyle
+                  : context.theme.inputDecorationTheme.labelStyle)
+              : context.theme.inputDecorationTheme.hintStyle,
     ),
   );
 }

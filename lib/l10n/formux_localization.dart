@@ -5,8 +5,6 @@ import 'package:flutter/widgets.dart';
 import 'formux_localization_es.dart';
 import 'dart:async';
 
-import 'formux_localization_es.dart';
-
 // ignore_for_file: type=lint
 
 /// Callers can lookup localized strings with an instance of FormuxLocalization
