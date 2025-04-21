@@ -1,112 +1,48 @@
-import 'exceptions/formux_failed_pass_exception.dart';
-import 'package:pipen/valuable/valuable.dart';
-import 'package:flutter/foundation.dart';
+library;
 
-part 'formux_input.dart';
+export 'src/formux.dart';
+export 'src/abstract/cubit_formux_input_error.dart';
+export 'src/abstract/formux_copy.dart';
+export 'src/abstract/formux_input_error_codes.dart';
+export 'src/abstract/formux_input_ids.dart';
+export 'src/abstract/formux_valid_event.dart';
+export 'src/abstract/state/dropdown_fetcher_cubit.dart';
+export 'src/abstract/state/dropdown_fetcher_listener.dart';
+export 'src/abstract/state/dropdown_input_event.dart';
+export 'src/cubit/cubit_form.dart';
+export 'src/exceptions/formux_failed_pass_exception.dart';
+export 'src/exceptions/input_errors_exception.dart';
+export 'src/extension/formux_input_extension.dart';
+export 'src/extension/formux_input_list_extension.dart';
+export 'src/strategies/formux_input_errors_strategy.dart';
+export 'src/models/input_error.dart';
 
-abstract class Formux<F> {
-  /// Constructor
-  Formux({bool loading = false}) {
-    if (loading) {
-      this.loading();
-    }
-  }
+export 'src/mixin/translations_mixin.dart';
 
-  /// [Abstract] Form id
-  String? id;
+export 'src/l10n/formux_localization.dart';
+export 'src/l10n/formux_localization_es.dart';
 
-  /// [Abstract] Form inputs
-  List<FormuxInput> get inputs;
+export 'src/widgets/container/formux_controller_container.dart';
+export 'src/widgets/container/formux_currency_controller_container.dart';
+export 'src/widgets/container/formux_input_container.dart';
+export 'src/widgets/container/formux_input_field.dart';
+export 'src/widgets/error_text/formux_error_text.dart';
+export 'src/widgets/loader/field_loader.dart';
+export 'src/widgets/text/formux_input_text.dart';
+export 'src/tool/formux_initializer.dart';
+export 'src/tool/formux_tool.dart';
+export 'src/tool/formux_years_generator.dart';
 
-  /// [Getter] All inputs passed
-  bool get passed => inputs.every((input) => input.required ? input.pass : true);
+export 'src/inputs/formux_boolean_input.dart';
+export 'src/inputs/formux_boolean_null_input.dart';
+export 'src/inputs/formux_double_input.dart';
+export 'src/inputs/formux_string_input.dart';
+export 'src/inputs/formux_valuable_input.dart';
+export 'src/inputs/formux_valuable_fetch_input.dart';
+export 'src/inputs/formux_email_input.dart';
 
-  /// All inputs is loading
-  bool get isLoading => inputs.every((input) => input.isLoading);
-
-  /// Form has id assigned
-  bool get hasId => id != null;
-
-  /// Check if form pass validations
-  void pass({VoidCallback? onPassed}) {
-    bool pass = valid();
-
-    if (!pass && onPassed == null) {
-      throw FormuxFailedPassException();
-    }
-
-    if (pass && onPassed != null) {
-      onPassed();
-    }
-  }
-
-  /// Validate inputs
-  Formux validate() {
-    for (FormuxInput input in inputs) {
-      input.validate();
-    }
-    return this;
-  }
-
-  /// Check if form is invalid, show
-  /// errors and return status
-  bool valid() {
-    bool pass = passed;
-    if (!pass) {
-      showErrors();
-    }
-    return pass;
-  }
-
-  /// Is loading form
-  void loading() {
-    for (FormuxInput input in inputs) {
-      input.loading();
-    }
-  }
-
-  /// Is loading form
-  void loaded() {
-    for (FormuxInput input in inputs) {
-      input.loaded();
-    }
-  }
-
-  /// Hide input errors
-  void hideErrors() {
-    for (FormuxInput input in inputs) {
-      input.hideErrors();
-    }
-  }
-
-  /// Show errors
-  void showErrors() {
-    for (FormuxInput input in inputs) {
-      input.showErrors();
-    }
-  }
-
-  /// Map inputs and print
-  void toMap() {
-    Map<String, dynamic> values = {};
-    int i = 0;
-
-    for (FormuxInput input in inputs) {
-      i++;
-      values[i.toString()] = getInputValue(input.value);
-    }
-
-    if (kDebugMode) {
-      print(values);
-    }
-  }
-
-  /// Get input value in string
-  String getInputValue(dynamic value) {
-    if (value is Valuable) {
-      return value.value;
-    }
-
-    return value.toString();
-  }
-}
+export 'src/fields/dropdown/fetcher/formux_dropdown_fetcher_field.dart';
+export 'src/fields/switch/formux_ui_switch.dart';
+export 'src/fields/text/formux_password_field.dart';
+export 'src/fields/text/formux_text_field.dart';
+export 'src/fields/text/formux_text_field_raw.dart';
