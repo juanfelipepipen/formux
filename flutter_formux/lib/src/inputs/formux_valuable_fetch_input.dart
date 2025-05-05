@@ -1,7 +1,7 @@
-import 'package:formux/formux.dart';
 import 'package:flutter_formux/src/input_type/formux_valuable_type.dart';
 import 'package:flutter_formux/src/mixin/translations_mixin.dart';
 import 'package:pipen/valuable.dart';
+import 'package:formux/formux.dart';
 
 typedef ValuableInputEvent = DropdownInputEvent<Valuable>;
 typedef OnValuableEventChange = Function(ValuableInputEvent);

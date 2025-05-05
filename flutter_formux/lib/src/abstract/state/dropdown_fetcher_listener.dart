@@ -1,6 +1,6 @@
 import 'package:pipen_bloc/abstract/bloc_listen_exceptions_ignore.dart';
-import 'package:formux/formux.dart';
 import 'package:pipen_bloc/listen/bloc_listen_fetch.dart';
+import 'package:formux/formux.dart';
 
 class DropdownFetcherListener<T> extends BlocListenFetch<List<T>>
     implements BlocListenExceptionsIgnore {

@@ -1,5 +1,5 @@
-import 'package:currency_textfield/currency_textfield.dart';
 import 'package:flutter_formux/src/inputs/formux_double_input.dart';
+import 'package:currency_textfield/currency_textfield.dart';
 import 'package:flutter/cupertino.dart';
 
 class FormuxCurrencyControllerContainer extends StatefulWidget {

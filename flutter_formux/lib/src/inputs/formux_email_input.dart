@@ -1,6 +1,6 @@
-import 'package:formux/formux.dart';
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter_formux/src/mixin/translations_mixin.dart';
+import 'package:email_validator/email_validator.dart';
+import 'package:formux/formux.dart';
 
 class FormuxEmailInput extends FormuxStringType with Translations {
   FormuxEmailInput({super.required, super.value});

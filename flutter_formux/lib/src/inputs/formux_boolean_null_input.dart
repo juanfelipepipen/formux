@@ -1,5 +1,5 @@
-import 'package:formux/formux.dart';
 import 'package:flutter_formux/src/mixin/translations_mixin.dart';
+import 'package:formux/formux.dart';
 
 class FormuxBooleanNullInput extends FormuxInput<bool?> with Translations {
   FormuxBooleanNullInput({bool? value}) : super(value: value ?? false);
