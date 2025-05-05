@@ -1,0 +1,6 @@
+output-dir: lib/src/l10n
+arb-dir: assets/locale
+synthetic-package: false
+output-class: FormuxLocalization
+template-arb-file: app_mx_es.arb
+output-localization-file: formux_localization.dart

@@ -1,6 +1,4 @@
 import 'package:formux/src/exceptions/formux_failed_pass_exception.dart';
-import 'package:pipen/valuable.dart';
-import 'package:flutter/foundation.dart';
 
 part 'formux_input.dart';
 
@@ -28,7 +26,7 @@ abstract class Formux<F> {
   bool get hasId => id != null;
 
   /// Check if form pass validations
-  void pass({VoidCallback? onPassed}) {
+  void pass({Function()? onPassed}) {
     bool pass = valid();
 
     if (!pass && onPassed == null) {
@@ -95,18 +93,10 @@ abstract class Formux<F> {
       i++;
       values[i.toString()] = getInputValue(input.value);
     }
-
-    if (kDebugMode) {
-      print(values);
-    }
   }
 
   /// Get input value in string
   String getInputValue(dynamic value) {
-    if (value is Valuable) {
-      return value.value;
-    }
-
     return value.toString();
   }
 }
