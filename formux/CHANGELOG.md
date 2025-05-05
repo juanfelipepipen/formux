@@ -1,3 +1,7 @@
+## 2.0.1
+
+- .idea dir removed
+
 ## 2.0.0
 
 - **BREAKING** Flutter dependencies moved to flutter_formux
