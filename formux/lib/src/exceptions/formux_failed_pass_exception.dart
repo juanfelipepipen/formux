@@ -1,0 +1,1 @@
+class FormuxFailedPassException implements Exception {}
