@@ -1,5 +1,5 @@
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-import 'formux_localization.dart';
 import 'formux_localization.dart';
 
 // ignore_for_file: type=lint
