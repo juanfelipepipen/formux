@@ -1,39 +1,43 @@
-* ## 1.0.0
+## 2.0.0
 
-* FormuxInputErrors support
+- **BREAKING** Flutter dependencies moved to flutter_formux
 
-* ## 0.0.9
+## 1.0.0
 
-* InputErrors support in CubitForm
+- FormuxInputErrors support
 
-* ## 0.0.8
+## 0.0.9
 
-* Dependencies corrections
+- InputErrors support in CubitForm
 
-* ## 0.0.7
+## 0.0.8
 
-* Minimal corrections
+- Dependencies corrections
 
-* ## 0.0.6
+## 0.0.7
 
-* PipenGap on fields
+- Minimal corrections
 
-* ## 0.0.5
+## 0.0.6
 
-* Pipen formux removed
+- PipenGap on fields
 
-* ## 0.0.4
+## 0.0.5
+
+- Pipen formux removed
+
+## 0.0.4
 
 * Formux input part of formux
 
-* ## 0.0.3
+## 0.0.3
 
-* Corrections
+- Corrections
 
-* ## 0.0.2
+## 0.0.2
 
-* Formux cubit support
+- Formux cubit support
 
-* ## 0.0.1
+## 0.0.1
 
-* Initial release.
+- Initial release.

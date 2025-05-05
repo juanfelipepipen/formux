@@ -1,5 +1,5 @@
 name: formux
-version: 1.1.0
+version: 2.0.0
 description: Form validator system
 homepage: https://formux.pipen.dev
 repository: https://github.com/juanfelipepipen/formux
@@ -7,7 +7,7 @@ documentation: https://formux.pipen.dev
 topics: [form, validations]
 
 environment:
-  sdk: ^3.7.2
+  sdk: ">=3.7.2 <4.0.0"
 
 dependencies:
   email_validator: ^3.0.0
