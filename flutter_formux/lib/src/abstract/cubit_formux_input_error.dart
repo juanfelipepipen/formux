@@ -1,4 +1,4 @@
-import 'package:flutter_formux/src/cubit/cubit_form.dart';
+import 'package:formux/formux.dart';
 
 interface class CubitFormuxInputError {
   /// Cubit form for pass input errors on fail

@@ -8,6 +8,8 @@ export 'src/abstract/formux_input_ids.dart';
 export 'src/abstract/formux_valid_event.dart';
 export 'src/abstract/state/dropdown_input_event.dart';
 
+export 'src/cubit/cubit_form.dart';
+
 export 'src/exceptions/formux_failed_pass_exception.dart';
 export 'src/exceptions/input_errors_exception.dart';
 export 'src/extension/formux_input_extension.dart';

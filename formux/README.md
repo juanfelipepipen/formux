@@ -2,7 +2,7 @@ A range of tools to simplify reactive form validation in Flutter.
 
 This package is built to work with:
 
-- [flutter_bloc](https://pub.dev/packages/flutter_bloc)
+- [flutter_formux](https://pub.dev/packages/flutter_formux)
 
 ## Features
 

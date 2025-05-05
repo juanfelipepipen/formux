@@ -4,8 +4,6 @@ export 'src/abstract/cubit_formux_input_error.dart';
 export 'src/abstract/state/dropdown_fetcher_cubit.dart';
 export 'src/abstract/state/dropdown_fetcher_listener.dart';
 
-export 'src/cubit/cubit_form.dart';
-
 export 'src/strategies/formux_input_errors_strategy.dart';
 
 export 'src/mixin/translations_mixin.dart';

@@ -1,5 +1,5 @@
 name: flutter_formux
-version: 1.0.0
+version: 1.0.1
 description: Interface tools for validating forms, managing state with BLoC, integrating with 
   Material components, and much more to facilitate the creation of forms tailored to any project \
   and interface.
@@ -29,7 +29,7 @@ dependencies:
   # Pipen libs
   pipen: ^1.1.0
   pipen_bloc: ^1.2.0
-  formux: ^2.0.1
+  formux: ^2.0.3
 
 dev_dependencies:
   flutter_test:
