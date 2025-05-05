@@ -1,3 +1,7 @@
+## 2.0.2
+
+- CubitForm restored
+
 ## 2.0.1
 
 - .idea dir removed
