@@ -7,6 +7,7 @@ export 'src/abstract/state/dropdown_fetcher_listener.dart';
 export 'src/strategies/formux_input_errors_strategy.dart';
 
 export 'src/mixin/translations_mixin.dart';
+export 'src/abstract/formux_error_codes_manager.dart';
 
 export 'src/l10n/formux_localization.dart';
 export 'src/l10n/formux_localization_es.dart';

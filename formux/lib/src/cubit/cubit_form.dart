@@ -35,4 +35,26 @@ abstract class CubitForm<F extends Formux> extends Cubit<F> {
     }
     emit(form);
   }
+
+  /// Add errors from error codes list
+  void errorCodes(List<FormuxInputErrorCode> codes) {
+    final form = _copyForm();
+    final codesFind = [];
+
+    if (form case FormuxInputErrorCodes formCodes) {
+      for (final error in codes) {
+        if (formCodes.codes.keys.contains(error.code)) {
+          formCodes.codes[error.code]!.addError(error.message);
+          codesFind.add(error);
+        }
+      }
+    }
+
+    // Remove errors codes find
+    for (final errorCode in codesFind) {
+      codes.remove(errorCode);
+    }
+
+    emit(form);
+  }
 }
