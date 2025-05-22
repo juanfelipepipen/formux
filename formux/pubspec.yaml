@@ -1,10 +1,10 @@
 name: formux
-version: 2.0.3
+version: 2.0.4
 description: Form validator, input logging, dynamic error handling, integrable with running 
   components and applicable for UI with flutter_formux
 homepage: https://formux.pipen.dev
-repository: https://github.com/juanfelipepipen/formux
 documentation: https://formux.pipen.dev
+repository: https://github.com/juanfelipepipen/formux
 topics: [form, validations]
 
 environment:
@@ -13,5 +13,3 @@ environment:
 dependencies:
   email_validator: ^3.0.0
   bloc: ^9.0.0
-
-dev_dependencies:

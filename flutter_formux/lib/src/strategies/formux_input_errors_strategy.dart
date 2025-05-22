@@ -1,4 +1,4 @@
-import 'package:flutter_formux/src/abstract/cubit_formux_input_error.dart';
+import 'package:flutter_formux/flutter_formux.dart';
 import 'package:formux/formux.dart';
 import 'package:pipen/graphql.dart';
 import 'package:pipen_bloc/models/exception_strategy.dart';
@@ -13,12 +13,21 @@ class FormuxInputErrorsStrategy extends ListenException {
   void handle(context, listener, exception) {
     exception = exception as GraphqlErrorCode;
     listener = listener as CubitFormuxInputError;
-    List<FormuxInputErrorCode> errorCodes = [
-      FormuxInputErrorCode(code: exception.errorCode, message: 'Esto es un mensaje de error'),
-    ];
-    listener.cubitForm.errorCodes(errorCodes);
-    if (errorCodes.isEmpty) {
-      print("ERRORES MAPEADOS");
+
+    Map<String, String> codes = FormuxErrorCodesManager.errors?.call(context) ?? {};
+    onUnknownCode() => FormuxErrorCodesManager.onUnknownCode?.call(context, exception.errorCode);
+
+    if (codes[exception.errorCode] case String message) {
+      List<FormuxInputErrorCode> errorCodes = [
+        FormuxInputErrorCode(code: exception.errorCode, message: message),
+      ];
+      listener.cubitForm.errorCodes(errorCodes);
+
+      if (errorCodes.isNotEmpty) {
+        onUnknownCode();
+      }
     }
+
+    onUnknownCode();
   }
 }

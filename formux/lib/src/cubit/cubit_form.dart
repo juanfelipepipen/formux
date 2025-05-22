@@ -2,7 +2,9 @@ import 'package:formux/formux.dart';
 import 'package:bloc/bloc.dart';
 
 abstract class CubitForm<F extends Formux> extends Cubit<F> {
-  CubitForm(super.initialState);
+  CubitForm(super.initialState) {
+    assert(state is FormuxCopy<F>);
+  }
 
   /// Validate form and if is valid, call method and
   /// emit new state from parent

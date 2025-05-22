@@ -1,3 +1,7 @@
+## 2.0.4
+
+- Exports improvements
+
 ## 2.0.3
 
 - Exports improvements
