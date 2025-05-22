@@ -1,5 +1,5 @@
-import 'package:pipen/components/transitions/slice_from_up/pipen_slice_from_up.dart';
-import 'package:pipen/extensions/context_extension.dart';
+import 'package:pipen/components.dart';
+import 'package:pipen/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:formux/formux.dart';
 

@@ -1,3 +1,7 @@
+## 1.0.2
+
+- Pipen dependency upgraded
+
 ## 1.0.1
 
 - CubitForm moved to formux

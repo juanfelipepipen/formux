@@ -1,8 +1,8 @@
 import 'package:flutter_formux/src/widgets/container/formux_controller_container.dart';
 import 'package:flutter_formux/src/fields/text/formux_password_field.dart';
-import 'package:pipen/extensions/context_extension.dart';
-import 'package:pipen/components/gap/pipen_gap.dart';
 import 'package:flutter/material.dart';
+import 'package:pipen/components.dart';
+import 'package:pipen/extensions.dart';
 import 'package:formux/formux.dart';
 
 class FormuxTextField extends StatelessWidget {

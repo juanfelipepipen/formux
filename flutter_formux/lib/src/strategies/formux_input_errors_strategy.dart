@@ -1,7 +1,7 @@
+import 'package:pipen_bloc/models/exception_strategy.dart';
 import 'package:flutter_formux/flutter_formux.dart';
 import 'package:formux/formux.dart';
 import 'package:pipen/graphql.dart';
-import 'package:pipen_bloc/models/exception_strategy.dart';
 
 class FormuxInputErrorsStrategy extends ListenException {
   @override

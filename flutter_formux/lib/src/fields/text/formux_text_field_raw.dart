@@ -1,4 +1,4 @@
-import 'package:pipen/extensions/context_extension.dart';
+import 'package:pipen/extensions.dart';
 import 'package:flutter/material.dart';
 
 class FormuxTextFieldRaw extends StatefulWidget {
@@ -89,46 +89,40 @@ class _SimpleTextFieldRawState extends State<FormuxTextFieldRaw> {
 
   @override
   Widget build(BuildContext context) => TextField(
-        cursorHeight: 20,
-        autocorrect: false,
-        controller: controller,
-        maxLength: widget.maxLength,
-        maxLines: widget.maxLines ?? 1,
-        obscureText: widget.obscureText,
-        keyboardType: widget.keyboardType,
-        textInputAction: widget.textInputAction,
-        focusNode: widget.focusNode ?? focusNode,
-        cursorColor: context.themeColors.primary,
-        onSubmitted: (value) => widget.onSubmitted?.call(),
-        onChanged: (value) => widget.onChanged?.call(value),
-        style: widget.style ??
-            TextStyle(
-              fontSize: widget.textSize,
-              fontWeight: widget.fontWeight,
-            ),
-        decoration: InputDecoration(
-          isDense: true,
-          isCollapsed: true,
-          enabled: widget.enable,
-          border: InputBorder.none,
-          counter: const Offstage(),
-          alignLabelWithHint: true,
-          hintText: widget.hintText,
-          errorBorder: InputBorder.none,
-          enabledBorder: InputBorder.none,
-          focusedBorder: InputBorder.none,
-          disabledBorder: InputBorder.none,
-          focusedErrorBorder: InputBorder.none,
-          contentPadding: EdgeInsets.only(
-            top: 4,
-            left: widget.contentPaddingLeft,
+    cursorHeight: 20,
+    autocorrect: false,
+    controller: controller,
+    maxLength: widget.maxLength,
+    maxLines: widget.maxLines ?? 1,
+    obscureText: widget.obscureText,
+    keyboardType: widget.keyboardType,
+    textInputAction: widget.textInputAction,
+    focusNode: widget.focusNode ?? focusNode,
+    cursorColor: context.themeColors.primary,
+    onSubmitted: (value) => widget.onSubmitted?.call(),
+    onChanged: (value) => widget.onChanged?.call(value),
+    style: widget.style ?? TextStyle(fontSize: widget.textSize, fontWeight: widget.fontWeight),
+    decoration: InputDecoration(
+      isDense: true,
+      isCollapsed: true,
+      enabled: widget.enable,
+      border: InputBorder.none,
+      counter: const Offstage(),
+      alignLabelWithHint: true,
+      hintText: widget.hintText,
+      errorBorder: InputBorder.none,
+      enabledBorder: InputBorder.none,
+      focusedBorder: InputBorder.none,
+      disabledBorder: InputBorder.none,
+      focusedErrorBorder: InputBorder.none,
+      contentPadding: EdgeInsets.only(top: 4, left: widget.contentPaddingLeft),
+      hintStyle:
+          widget.hintStyle ??
+          TextStyle(
+            fontSize: widget.textSize,
+            fontWeight: widget.hintFontWeight,
+            color: widget.enable ? widget.hintColor : widget.hintColor.withValues(alpha: 0.4),
           ),
-          hintStyle: widget.hintStyle ??
-              TextStyle(
-                fontSize: widget.textSize,
-                fontWeight: widget.hintFontWeight,
-                color: widget.enable ? widget.hintColor : widget.hintColor.withValues(alpha: 0.4),
-              ),
-        ),
-      );
+    ),
+  );
 }

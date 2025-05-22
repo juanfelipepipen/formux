@@ -1,7 +1,6 @@
-import 'package:pipen/components/gesture/pipen_gesture_tap.dart';
-import 'package:pipen/extensions/context_extension.dart';
-import 'package:pipen/components/gap/pipen_gap.dart';
 import 'package:flutter/material.dart';
+import 'package:pipen/components.dart';
+import 'package:pipen/extensions.dart';
 import 'package:formux/formux.dart';
 
 class FormuxInputContainer extends StatelessWidget {
