@@ -1,3 +1,7 @@
+## 1.0.3
+
+- Int version upgraded
+
 ## 1.0.2
 
 - Pipen dependency upgraded

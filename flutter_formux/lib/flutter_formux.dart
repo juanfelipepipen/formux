@@ -38,3 +38,5 @@ export 'src/fields/text/formux_text_field.dart';
 export 'src/fields/text/formux_text_field_raw.dart';
 
 export 'src/input_type/formux_valuable_type.dart';
+
+export 'src/config/flutter_formux.dart';

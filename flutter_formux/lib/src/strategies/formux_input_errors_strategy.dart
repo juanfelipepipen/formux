@@ -14,8 +14,9 @@ class FormuxInputErrorsStrategy extends ListenException {
     exception = exception as GraphqlErrorCode;
     listener = listener as CubitFormuxInputError;
 
-    Map<String, String> codes = FormuxErrorCodesManager.errors?.call(context) ?? {};
-    onUnknownCode() => FormuxErrorCodesManager.onUnknownCode?.call(context, exception.errorCode);
+    Map<String, String> codes = FlutterFormux.errorsManager?.errors.call(context) ?? {};
+    onUnknownCode() =>
+        FlutterFormux.errorsManager?.onUnknownCode.call(context, exception.errorCode);
 
     if (codes[exception.errorCode] case String message) {
       List<FormuxInputErrorCode> errorCodes = [

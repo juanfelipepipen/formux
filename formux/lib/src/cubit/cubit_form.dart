@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:formux/formux.dart';
 import 'package:bloc/bloc.dart';
 
@@ -28,13 +29,21 @@ abstract class CubitForm<F extends Formux> extends Cubit<F> {
     }
   }
 
-  /// Add error to form with id
-  void inputErrors(InputErrorsException inputErrors) {
+  /// Add error to input form from a input errors list with field name
+  void inputErrors(List<InputError> inputErrors) {
     final form = _copyForm();
 
     if (form case FormuxInputIds inputIds) {
-      inputErrors.form(inputIds);
+      for (String field in inputIds.ids.keys) {
+        final error = inputErrors.firstWhereOrNull((e) => e.field == field);
+
+        if (error case InputError error) {
+          inputIds.ids[field]!.addError(error.errors.first);
+          inputErrors.remove(error);
+        }
+      }
     }
+
     emit(form);
   }
 

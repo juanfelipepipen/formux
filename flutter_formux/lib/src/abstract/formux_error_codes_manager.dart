@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
-class FormuxErrorCodesManager {
+abstract class FormuxErrorCodesManager {
   /// Errors codes translations
-  static Map<String, String> Function(BuildContext)? errors;
+  Map<String, String> Function(BuildContext) get errors;
 
   /// On unknown error code
-  static Function(BuildContext context, String errorCode)? onUnknownCode;
+  Function(BuildContext context, String errorCode) get onUnknownCode;
 }
