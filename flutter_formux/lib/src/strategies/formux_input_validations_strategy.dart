@@ -6,19 +6,19 @@ import 'package:pipen/graphql.dart';
 class FormuxInputValidationsStrategy extends ListenException {
   @override
   bool callable(listener, exception) {
-    return listener is CubitFormuxInputError && exception is GraphqlValidationErrors;
+    return listener is ListenFormuxError && exception is GraphqlValidationErrors;
   }
 
   @override
   void handle(context, listener, exception) {
     exception = exception as GraphqlValidationErrors;
-    listener as CubitFormuxInputError;
+    listener as ListenFormuxError;
     final errors =
         exception.errors.map((e) => InputError(field: e.field, errors: e.errors)).toList();
     listener.cubitForm.inputErrors(errors);
 
     if (errors.isNotEmpty) {
-      FlutterFormux.errorsManager?.onUnknownCode.call(context, 'Validation errors');
+      FlutterFormux.errorsManager?.onInputErrors.call(context, errors);
     }
   }
 }

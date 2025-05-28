@@ -1,6 +1,6 @@
 library;
 
-export 'src/abstract/cubit_formux_input_error.dart';
+export 'src/abstract/listen_formux_error.dart';
 export 'src/abstract/state/dropdown_fetcher_cubit.dart';
 export 'src/abstract/state/dropdown_fetcher_listener.dart';
 
