@@ -1,3 +1,7 @@
+## 2.1.0
+
+- Error exception strategies
+
 ## 2.0.4
 
 - Exports improvements

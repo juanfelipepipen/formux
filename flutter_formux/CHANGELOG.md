@@ -1,3 +1,7 @@
+## 1.0.4
+
+- Dependencies upgraded
+
 ## 1.0.3
 
 - Int version upgraded

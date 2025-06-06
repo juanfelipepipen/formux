@@ -61,7 +61,8 @@ import 'formux_localization_es.dart';
 /// be consistent with the languages listed in the FormuxLocalization.supportedLocales
 /// property.
 abstract class FormuxLocalization {
-  FormuxLocalization(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  FormuxLocalization(String locale)
+    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -69,7 +70,8 @@ abstract class FormuxLocalization {
     return Localizations.of<FormuxLocalization>(context, FormuxLocalization);
   }
 
-  static const LocalizationsDelegate<FormuxLocalization> delegate = _FormuxLocalizationDelegate();
+  static const LocalizationsDelegate<FormuxLocalization> delegate =
+      _FormuxLocalizationDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -81,17 +83,16 @@ abstract class FormuxLocalization {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
-    delegate,
-    GlobalMaterialLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-  ];
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
 
   /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[
-    Locale('es')
-  ];
+  static const List<Locale> supportedLocales = <Locale>[Locale('es')];
 
   /// No description provided for @required.
   ///
@@ -166,33 +167,36 @@ abstract class FormuxLocalization {
   String emailDomainNotAllowed(String domain);
 }
 
-class _FormuxLocalizationDelegate extends LocalizationsDelegate<FormuxLocalization> {
+class _FormuxLocalizationDelegate
+    extends LocalizationsDelegate<FormuxLocalization> {
   const _FormuxLocalizationDelegate();
 
   @override
   Future<FormuxLocalization> load(Locale locale) {
-    return SynchronousFuture<FormuxLocalization>(lookupFormuxLocalization(locale));
+    return SynchronousFuture<FormuxLocalization>(
+      lookupFormuxLocalization(locale),
+    );
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['es'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['es'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_FormuxLocalizationDelegate old) => false;
 }
 
 FormuxLocalization lookupFormuxLocalization(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'es': return FormuxLocalizationEs();
+    case 'es':
+      return FormuxLocalizationEs();
   }
 
   throw FlutterError(
     'FormuxLocalization.delegate failed to load unsupported locale "$locale". This is likely '
     'an issue with the localizations generation tool. Please file an issue '
     'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
+    'that was used.',
   );
 }

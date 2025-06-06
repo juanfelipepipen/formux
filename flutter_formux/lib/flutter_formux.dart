@@ -4,7 +4,7 @@ export 'src/abstract/listen_formux_error.dart';
 export 'src/abstract/state/dropdown_fetcher_cubit.dart';
 export 'src/abstract/state/dropdown_fetcher_listener.dart';
 
-export 'src/strategies/formux_input_errors_strategy.dart';
+export 'src/strategies/formux_input_error_code_strategy.dart';
 
 export 'src/mixin/translations_mixin.dart';
 export 'src/abstract/formux_error_codes_manager.dart';
