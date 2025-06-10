@@ -42,50 +42,50 @@ class _LayoutState extends State<Layout> {
 
   @override
   Widget build(BuildContext context) => DropdownBuilder(
-        builder: (context, state, bloc) => Padding(
+    builder:
+        (context, state, bloc) => Padding(
           padding: EdgeInsets.symmetric(vertical: 7),
           child: LayoutBuilder(
-            builder: (context, constrained) => PipenRow(
-              vertical: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: DropdownMenu<Valuable>(
-                    enableFilter: true,
-                    controller: controller,
-                    enableSearch: true,
-                    onSelected: onChange,
-                    requestFocusOnTap: true,
-                    width: constrained.maxWidth,
-                    initialSelection: widget.input.valueFromItems,
-                    label: widget.label != null ? Text(widget.label!) : null,
-                    errorText: widget.input.display ? widget.input.error : null,
-                    trailingIcon: switch (state) {
-                      FetchPending() => null,
-                      FetchSuccess() => null,
-                      FetchLoading() => FieldLoader(),
-                      _ => SizedBox.shrink(),
-                    },
-                    dropdownMenuEntries: [
-                      ...widget.input.items.map<DropdownMenuEntry<Valuable>>(
-                        (value) => DropdownMenuEntry<Valuable>(
-                          value: value,
-                          label: value.title,
-                        ),
-                      )
-                    ],
-                  ),
+            builder:
+                (context, constrained) => PipenRow(
+                  vertical: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: DropdownMenu<Valuable>(
+                        enableFilter: true,
+                        controller: controller,
+                        enableSearch: true,
+                        onSelected: onChange,
+                        requestFocusOnTap: true,
+                        width: constrained.maxWidth,
+                        initialSelection: widget.input.valueFromItems,
+                        label: widget.label != null ? Text(widget.label!) : null,
+                        errorText: widget.input.display ? widget.input.error : null,
+                        trailingIcon: switch (state) {
+                          FetchPending() => null,
+                          FetchSuccess() => null,
+                          FetchLoading() => FieldLoader(),
+                          _ => SizedBox.shrink(),
+                        },
+                        dropdownMenuEntries: [
+                          ...widget.input.items.map<DropdownMenuEntry<Valuable>>(
+                            (value) =>
+                                DropdownMenuEntry<Valuable>(value: value, label: value.title),
+                          ),
+                        ],
+                      ),
+                    ),
+                    PipenSliceFromUp(
+                      show: state is FetchFail,
+                      axis: Axis.horizontal,
+                      child: IconButton(
+                        onPressed: bloc.refresh,
+                        icon: Icon(Icons.refresh, color: context.themeColors.primary),
+                      ),
+                    ),
+                  ],
                 ),
-                PipenSliceFromUp(
-                  show: state is FetchFail,
-                  axis: Axis.horizontal,
-                  child: IconButton(
-                    onPressed: bloc.refresh,
-                    icon: Icon(Icons.refresh, color: context.themeColors.primary),
-                  ),
-                ),
-              ],
-            ),
           ),
         ),
-      );
+  );
 }

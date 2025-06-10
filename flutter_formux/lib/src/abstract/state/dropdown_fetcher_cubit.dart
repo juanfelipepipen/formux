@@ -1,4 +1,4 @@
-import 'package:pipen_bloc/cubit/cubit_fetch.dart';
+import 'package:pipen_bloc/pipen_bloc.dart';
 
 typedef Fetcher<T> = Future<List<T>> Function();
 
