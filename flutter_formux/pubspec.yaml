@@ -1,5 +1,5 @@
 name: flutter_formux
-version: 1.0.4
+version: 1.0.5
 homepage: https://formux.pipen.dev
 repository: https://github.com/juanfelipepipen/formux
 documentation: https://formux.pipen.dev
@@ -26,9 +26,9 @@ dependencies:
   currency_textfield: ^4.14.1
 
   # Pipen libs
-  pipen: ^2.1.0
-  formux: ^2.0.4
-  pipen_bloc: ^1.2.1
+  pipen: ^2.2.1
+  formux: ^2.1.1
+  pipen_bloc: ^1.2.3
 
 dev_dependencies:
   flutter_test:
