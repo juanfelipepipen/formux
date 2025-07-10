@@ -1,7 +1,7 @@
 import 'package:flutter_formux/src/mixin/translations_mixin.dart';
 import 'package:formux/formux.dart';
 
-class FormuxDoubleInput extends FormuxDoubleType with Translations {
+class FormuxDoubleInput extends FormuxDoubleType with FormuxTranslations {
   FormuxDoubleInput({super.required, super.value});
 
   FormuxDoubleInput.notRequired({double? value}) : super(value: value ?? 0, required: false);

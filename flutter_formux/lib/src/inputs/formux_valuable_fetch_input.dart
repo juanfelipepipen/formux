@@ -6,7 +6,7 @@ import 'package:formux/formux.dart';
 typedef ValuableInputEvent = DropdownInputEvent<Valuable>;
 typedef OnValuableEventChange = Function(ValuableInputEvent);
 
-class FormuxValuableFetchInput extends FormuxValuableType with Translations {
+class FormuxValuableFetchInput extends FormuxValuableType with FormuxTranslations {
   FormuxValuableFetchInput({super.value, super.items, super.fetch, super.required});
 
   @override

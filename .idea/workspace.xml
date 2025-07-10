@@ -5,16 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8da6f04e-83f4-4f94-b0d8-318b34e6f070" name="Changes" comment="feat: formux.dart with exports">
-      <change afterPath="$PROJECT_DIR$/flutter_formux/lib/src/config/flutter_formux.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flutter_formux/lib/src/widgets/validator/formux_bloc_form_validator.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/formux.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/formux.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flutter_formux/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_formux/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_formux/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_formux/CHANGELOG.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flutter_formux/lib/flutter_formux.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_formux/lib/flutter_formux.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_formux/lib/src/abstract/formux_error_codes_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_formux/lib/src/abstract/formux_error_codes_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_formux/lib/src/strategies/formux_input_errors_strategy.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_formux/lib/src/strategies/formux_input_errors_strategy.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_formux/lib/src/fields/text/formux_password_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_formux/lib/src/fields/text/formux_password_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_formux/lib/src/widgets/container/formux_input_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_formux/lib/src/widgets/container/formux_input_container.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_formux/lib/src/widgets/container/formux_input_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_formux/lib/src/widgets/container/formux_input_field.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flutter_formux/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_formux/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/formux/lib/src/abstract/formux_input_error_codes.dart" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

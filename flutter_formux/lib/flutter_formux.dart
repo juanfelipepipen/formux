@@ -19,6 +19,7 @@ export 'src/widgets/container/formux_input_field.dart';
 export 'src/widgets/error_text/formux_error_text.dart';
 export 'src/widgets/loader/field_loader.dart';
 export 'src/widgets/text/formux_input_text.dart';
+export 'src/widgets/validator/formux_bloc_form_validator.dart';
 export 'src/tool/formux_initializer.dart';
 export 'src/tool/formux_tool.dart';
 export 'src/tool/formux_years_generator.dart';

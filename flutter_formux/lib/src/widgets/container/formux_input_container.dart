@@ -6,6 +6,7 @@ import 'package:formux/formux.dart';
 class FormuxInputContainer extends StatelessWidget {
   const FormuxInputContainer({
     super.key,
+    this.label,
     this.child,
     this.onTap,
     this.style,
@@ -14,7 +15,6 @@ class FormuxInputContainer extends StatelessWidget {
     this.suffixIcon,
     this.errorBorder,
     this.contentPadding,
-    required this.label,
     required this.input,
     this.floatingLabelBehavior = FloatingLabelBehavior.always,
   });
@@ -28,7 +28,7 @@ class FormuxInputContainer extends StatelessWidget {
   final TextStyle? style;
   final Widget? child;
   final bool? enabled;
-  final String label;
+  final String? label;
 
   String? get errorText => input.display ? input.error : null;
 

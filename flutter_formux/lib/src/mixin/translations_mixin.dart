@@ -2,7 +2,7 @@ import 'package:flutter_formux/src/l10n/formux_localization.dart';
 
 FormuxLocalization? formuxLocalization;
 
-mixin Translations {
+mixin FormuxTranslations {
   FormuxLocalization get translations {
     if (formuxLocalization == null) {
       throw Exception(

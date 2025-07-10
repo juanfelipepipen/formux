@@ -7,11 +7,11 @@ import 'package:formux/formux.dart';
 class FormuxInputField extends StatelessWidget {
   const FormuxInputField({
     super.key,
+    this.label,
     this.input,
     this.value,
     this.enabled,
     this.suffixIcon,
-    required this.label,
   }) : informative = false;
 
   const FormuxInputField.info({
@@ -23,12 +23,11 @@ class FormuxInputField extends StatelessWidget {
     required this.label,
   }) : informative = true;
 
+  final String? value, label;
   final FormuxInput? input;
   final Widget? suffixIcon;
   final bool informative;
   final bool? enabled;
-  final String? value;
-  final String label;
 
   String? get _value {
     if (informative) {
@@ -48,7 +47,7 @@ class FormuxInputField extends StatelessWidget {
     input: input ?? FormuxStringInput(),
     floatingLabelBehavior: _floatingLabelBehavior,
     child: Text(
-      _value ?? label,
+      _value ?? label ?? '',
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
       style:

@@ -1,7 +1,7 @@
 import 'package:flutter_formux/src/mixin/translations_mixin.dart';
 import 'package:formux/formux.dart';
 
-class FormuxStringInput extends FormuxStringType with Translations {
+class FormuxStringInput extends FormuxStringType with FormuxTranslations {
   FormuxStringInput({
     String? value,
     this.length,

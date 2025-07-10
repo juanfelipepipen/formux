@@ -8,27 +8,34 @@ class FormuxPasswordField extends StatefulWidget {
   const FormuxPasswordField({
     super.key,
     this.style,
+    this.label,
     this.filled,
     this.border,
+    this.prefix,
     this.enabled,
     this.fillColor,
     this.onSubmitted,
+    this.suffixPadding,
     this.contentPadding,
+    this.floatingLabelBehavior,
+    this.passwordViewer = true,
     required this.input,
-    required this.label,
     required this.onChange,
   });
 
+  final FloatingLabelBehavior? floatingLabelBehavior;
   final EdgeInsetsGeometry? contentPadding;
   final Function(String) onChange;
+  final EdgeInsets? suffixPadding;
   final VoidCallback? onSubmitted;
   final FormuxStringType input;
+  final bool? enabled, filled;
+  final bool passwordViewer;
   final InputBorder? border;
   final TextStyle? style;
   final Color? fillColor;
-  final bool? enabled;
+  final Widget? prefix;
   final String? label;
-  final bool? filled;
 
   @override
   State<FormuxPasswordField> createState() => _FormuxPasswordFieldState();
@@ -39,26 +46,30 @@ class _FormuxPasswordFieldState extends State<FormuxPasswordField> {
 
   @override
   void initState() {
-    showPassword = false;
+    showPassword = !widget.passwordViewer;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) => FormuxTextField(
-        input: widget.input,
-        // style: widget.style,
-        // border: widget.border,
-        // filled: widget.filled,
-        onChange: widget.onChange,
-        enabled: widget.enabled,
-        obscureText: !showPassword,
-        // fillColor: widget.fillColor,
-        onSubmitted: widget.onSubmitted,
-        // contentPadding: widget.contentPadding,
-        label: widget.label ?? FormuxLocalization.of(context)!.password,
-        suffixIcon: IconButton(
-          onPressed: () => setState(() => showPassword = !showPassword),
-          icon: Icon(showPassword ? CupertinoIcons.eye_slash : CupertinoIcons.eye),
-        ),
-      );
+    input: widget.input,
+    style: widget.style,
+    enabled: widget.enabled,
+    onChange: widget.onChange,
+    prefixIcon: widget.prefix,
+    obscureText: !showPassword,
+    onSubmitted: widget.onSubmitted,
+    floatingLabelBehavior: widget.floatingLabelBehavior,
+    label: widget.label ?? FormuxLocalization.of(context)!.password,
+    suffixIcon:
+        widget.passwordViewer
+            ? Padding(
+              padding: widget.suffixPadding ?? EdgeInsets.zero,
+              child: IconButton(
+                onPressed: () => setState(() => showPassword = !showPassword),
+                icon: Icon(showPassword ? CupertinoIcons.eye_slash : CupertinoIcons.eye),
+              ),
+            )
+            : null,
+  );
 }
