@@ -6,7 +6,8 @@ mixin FormuxTranslations {
   FormuxLocalization get translations {
     if (formuxLocalization == null) {
       throw Exception(
-          'Need set formuxLocalization with current localization using FormuxLocalization.of(context)');
+        'Need set formuxLocalization with current localization using FormuxLocalization.of(context)',
+      );
     }
     return formuxLocalization!;
   }

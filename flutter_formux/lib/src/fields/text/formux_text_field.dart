@@ -17,13 +17,15 @@ class FormuxTextField extends StatelessWidget {
     this.filled,
     this.enabled,
     this.hintText,
-    this.hintStyle,
     this.minLines,
+    this.hintStyle,
     this.fillColor,
+    this.textAlign,
     this.prefixText,
     this.suffixText,
     this.prefixIcon,
     this.helperText,
+    this.focusNode,
     this.controller,
     this.suffixIcon,
     this.onSubmitted,
@@ -49,11 +51,13 @@ class FormuxTextField extends StatelessWidget {
     this.hintText,
     this.hintStyle,
     this.fillColor,
+    this.textAlign,
     this.prefixIcon,
     this.prefixText,
     this.suffixText,
     this.controller,
     this.helperText,
+    this.focusNode,
     this.suffixIcon,
     this.onSubmitted,
     this.keyboardType,
@@ -75,11 +79,13 @@ class FormuxTextField extends StatelessWidget {
     this.enabled,
     this.hintText,
     this.hintStyle,
-    this.prefixIcon,
     this.fillColor,
+    this.textAlign,
+    this.prefixIcon,
     this.prefixText,
     this.suffixText,
     this.helperText,
+    this.focusNode,
     this.controller,
     this.suffixIcon,
     this.onSubmitted,
@@ -126,6 +132,8 @@ class FormuxTextField extends StatelessWidget {
   final Function(String) onChange;
   final VoidCallback? onSubmitted;
   final bool? filled, enabled;
+  final TextAlign? textAlign;
+  final FocusNode? focusNode;
   final InputBorder? border;
   final FormuxInput input;
   final String? hintText;
@@ -142,9 +150,11 @@ class FormuxTextField extends StatelessWidget {
             enabled: enabled,
             minLines: minLines,
             onChanged: onChange,
+            focusNode: focusNode,
             maxLines: minLines ?? 1,
             obscureText: obscureText,
             keyboardType: keyboardType,
+            textAlign: textAlign ?? TextAlign.start,
             controller: controller ?? formuxController,
             onFieldSubmitted: (_) => onSubmitted?.call(),
             decoration: InputDecoration(

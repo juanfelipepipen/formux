@@ -1,3 +1,7 @@
+## 1.0.7
+
+- Minimal corrections
+
 ## 1.0.5
 
 - Dependencies imports corrections

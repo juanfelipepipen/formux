@@ -8,6 +8,7 @@ class FormuxErrorText extends StatefulWidget {
     super.key,
     this.color,
     this.style,
+    this.padding,
     this.fontWeight,
     this.letterSpacing,
     this.errors = true,
@@ -17,6 +18,7 @@ class FormuxErrorText extends StatefulWidget {
 
   final FontWeight? fontWeight;
   final double? letterSpacing;
+  final EdgeInsets? padding;
   final FormuxInput input;
   final TextStyle? style;
   final TextAlign align;
@@ -51,28 +53,28 @@ class _FormuxErrorTextState extends State<FormuxErrorText> {
 
   @override
   Widget build(BuildContext context) => PipenSliceFromUp(
-        show: widget.input.display && widget.errors,
-        duration: const Duration(milliseconds: 400),
-        child: Row(
-          mainAxisAlignment: switch (widget.align) {
-            TextAlign.right => MainAxisAlignment.end,
-            TextAlign.center => MainAxisAlignment.center,
-            _ => MainAxisAlignment.start
-          },
-          children: [
-            Expanded(
-              child: Text(
-                error ?? '',
-                textAlign: widget.align,
-                style: widget.style ??
-                    TextStyle(
-                      fontWeight: widget.fontWeight,
-                      letterSpacing: widget.letterSpacing,
-                      color: widget.color ?? context.themeColors.error,
-                    ),
+    show: widget.input.display && widget.errors,
+    duration: const Duration(milliseconds: 400),
+    child: PipenRow.expanded(
+      horizontal: switch (widget.align) {
+        TextAlign.right => MainAxisAlignment.end,
+        TextAlign.center => MainAxisAlignment.center,
+        _ => MainAxisAlignment.start,
+      },
+      child: Padding(
+        padding: widget.padding ?? EdgeInsets.zero,
+        child: Text(
+          error ?? '',
+          textAlign: widget.align,
+          style:
+              widget.style ??
+              TextStyle(
+                fontWeight: widget.fontWeight,
+                letterSpacing: widget.letterSpacing,
+                color: widget.color ?? context.themeColors.error,
               ),
-            )
-          ],
         ),
-      );
+      ),
+    ),
+  );
 }
