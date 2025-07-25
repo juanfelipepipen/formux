@@ -158,6 +158,7 @@ class FormuxTextField extends StatelessWidget {
             controller: controller ?? formuxController,
             onFieldSubmitted: (_) => onSubmitted?.call(),
             decoration: InputDecoration(
+              errorMaxLines: 3,
               icon: icon,
               border: border,
               filled: filled,

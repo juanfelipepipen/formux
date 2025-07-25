@@ -13,6 +13,7 @@ class FormuxValuableFetchInput extends FormuxValuableType with FormuxTranslation
   void clear() {
     value = null;
     fetch = null;
+    items = [];
     hideErrors();
   }
 

@@ -6,6 +6,8 @@
   "emailDomainOutsideAllowed": "El dominio del correo ingresado no se encuentra permitido",
   "passwordConfirmationIncorrect": "La contraseña de confirmación no es correcta",
   "password": "Contraseña",
+  "onlyNumbers": "Solo se admiten números",
+  "dniCurpFormat": "Formato de CURP incorrecto",
   "dateTimeAfterThan": "La fecha debe ser mayor a {dateTime}",
   "@dateTimeAfterThan": {
     "placeholders": {

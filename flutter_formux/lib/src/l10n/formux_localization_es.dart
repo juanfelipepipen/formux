@@ -32,6 +32,12 @@ class FormuxLocalizationEs extends FormuxLocalization {
   String get password => 'Contraseña';
 
   @override
+  String get onlyNumbers => 'Solo se admiten números';
+
+  @override
+  String get dniCurpFormat => 'Formato de CURP incorrecto';
+
+  @override
   String dateTimeAfterThan(String dateTime) {
     return 'La fecha debe ser mayor a $dateTime';
   }

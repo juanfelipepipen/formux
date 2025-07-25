@@ -136,6 +136,18 @@ abstract class FormuxLocalization {
   /// **'Contraseña'**
   String get password;
 
+  /// No description provided for @onlyNumbers.
+  ///
+  /// In es, this message translates to:
+  /// **'Solo se admiten números'**
+  String get onlyNumbers;
+
+  /// No description provided for @dniCurpFormat.
+  ///
+  /// In es, this message translates to:
+  /// **'Formato de CURP incorrecto'**
+  String get dniCurpFormat;
+
   /// No description provided for @dateTimeAfterThan.
   ///
   /// In es, this message translates to:

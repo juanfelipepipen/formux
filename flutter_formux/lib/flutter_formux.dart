@@ -25,6 +25,7 @@ export 'src/tool/formux_tool.dart';
 export 'src/tool/formux_years_generator.dart';
 
 export 'src/inputs/formux_boolean_input.dart';
+export 'src/inputs/formux_file_input.dart';
 export 'src/inputs/formux_boolean_null_input.dart';
 export 'src/inputs/formux_double_input.dart';
 export 'src/inputs/formux_string_input.dart';
