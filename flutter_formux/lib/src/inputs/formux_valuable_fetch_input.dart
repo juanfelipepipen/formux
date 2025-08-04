@@ -1,9 +1,7 @@
 import 'package:flutter_formux/src/input_type/formux_valuable_type.dart';
 import 'package:flutter_formux/src/mixin/translations_mixin.dart';
 import 'package:pipen/valuable.dart';
-import 'package:formux/formux.dart';
 
-typedef ValuableInputEvent = DropdownInputEvent<Valuable>;
 typedef OnValuableEventChange = Function(ValuableInputEvent);
 
 class FormuxValuableFetchInput extends FormuxValuableType with FormuxTranslations {
@@ -24,25 +22,25 @@ class FormuxValuableFetchInput extends FormuxValuableType with FormuxTranslation
 
   /// Set input event
   void event(ValuableInputEvent event) {
-    if (event case DropdownSetValue<Valuable> event) {
-      value = event.value;
-    }
-
-    if (event case DropdownSetItems<Valuable> event) {
-      items = event.items;
-    }
-
-    if (event case DropdownSetFetch<Valuable> event) {
-      fetch = event.fetch;
-      items = [];
-      hideErrors();
-    }
-
-    if (event case DropdownSetFetchClear<Valuable> event) {
-      value = null;
-      fetch = event.fetch;
-      hideErrors();
-    }
+    final callback = switch (event) {
+      ValuableInputSetValue() => () {
+        value = event.value;
+      },
+      ValuableInputSetItems() => () {
+        items = event.items;
+      },
+      ValuableInputSetFetchClear() => () {
+        fetch = event.fetch;
+        value = null;
+        hideErrors();
+      },
+      ValuableInputSetFetch() => () {
+        fetch = event.fetch;
+        items = [];
+        hideErrors();
+      },
+    };
+    callback();
   }
 
   Valuable? get valueFromItems {
@@ -68,4 +66,35 @@ class FormuxValuableFetchInput extends FormuxValuableType with FormuxTranslation
       }
     }
   }
+}
+
+sealed class ValuableInputEvent {
+  static ValuableInputSetValue setValue(Valuable value) => ValuableInputSetValue(value: value);
+  static ValuableInputSetItems setItems(ValuableList items) => ValuableInputSetItems(items: items);
+  static ValuableInputSetFetch setFetch(ValuableListFetchCallback fetch) =>
+      ValuableInputSetFetch(fetch: fetch);
+  static ValuableInputSetFetchClear setFetchClear(ValuableListFetchCallback fetch) =>
+      ValuableInputSetFetchClear(fetch: fetch);
+}
+
+class ValuableInputSetValue extends ValuableInputEvent {
+  ValuableInputSetValue({required this.value});
+
+  final Valuable value;
+}
+
+class ValuableInputSetItems extends ValuableInputEvent {
+  ValuableInputSetItems({required this.items});
+
+  final ValuableList items;
+}
+
+class ValuableInputSetFetch extends ValuableInputEvent {
+  ValuableInputSetFetch({required this.fetch});
+
+  final ValuableListFetchCallback fetch;
+}
+
+class ValuableInputSetFetchClear extends ValuableInputSetFetch {
+  ValuableInputSetFetchClear({required super.fetch});
 }

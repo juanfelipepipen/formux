@@ -24,6 +24,7 @@ export 'src/tool/formux_initializer.dart';
 export 'src/tool/formux_tool.dart';
 export 'src/tool/formux_years_generator.dart';
 
+/// Inputs
 export 'src/inputs/formux_boolean_input.dart';
 export 'src/inputs/formux_file_input.dart';
 export 'src/inputs/formux_boolean_null_input.dart';
@@ -32,8 +33,12 @@ export 'src/inputs/formux_string_input.dart';
 export 'src/inputs/formux_valuable_input.dart';
 export 'src/inputs/formux_valuable_fetch_input.dart';
 export 'src/inputs/formux_email_input.dart';
+export 'src/inputs/formux_integer_input.dart';
 
+/// Dropdown
 export 'src/fields/dropdown/fetcher/formux_dropdown_fetcher_field.dart';
+export 'src/fields/dropdown/fetch/formux_dropdown_field_builder.dart';
+
 export 'src/fields/switch/formux_ui_switch.dart';
 export 'src/fields/text/formux_password_field.dart';
 export 'src/fields/text/formux_text_field.dart';

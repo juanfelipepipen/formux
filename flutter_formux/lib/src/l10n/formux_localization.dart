@@ -166,6 +166,12 @@ abstract class FormuxLocalization {
   /// **'La longitud máxima es de {max} carácteres'**
   String maxLength(num max);
 
+  /// No description provided for @maxValue.
+  ///
+  /// In es, this message translates to:
+  /// **'El valor máximo permitido es {max}'**
+  String maxValue(num max);
+
   /// No description provided for @fixedLength.
   ///
   /// In es, this message translates to:

@@ -53,6 +53,11 @@ class FormuxLocalizationEs extends FormuxLocalization {
   }
 
   @override
+  String maxValue(num max) {
+    return 'El valor máximo permitido es $max';
+  }
+
+  @override
   String fixedLength(num length) {
     return 'La longitud debe ser de $length carácteres';
   }

@@ -1,36 +1,44 @@
-part of 'formux_dropdown_fetcher_field.dart';
+part of 'formux_dropdown_field_builder.dart';
 
-class Layout extends StatefulWidget {
-  const Layout({super.key, this.label, required this.input, required this.onChange});
+class _Layout extends StatefulWidget {
+  const _Layout({
+    this.label,
+    this.fetcher,
+    required this.items,
+    required this.input,
+    required this.onChange,
+  });
 
-  final FormuxValuableFetchInput input;
+  final ValuableListFetchCallback? fetcher;
   final OnValuableEventChange onChange;
+  final ValuableList items;
+  final FormuxInput input;
   final String? label;
 
   @override
-  State<Layout> createState() => _LayoutState();
+  State<_Layout> createState() => _LayoutState();
 }
 
-class _LayoutState extends State<Layout> {
+class _LayoutState extends State<_Layout> {
   late TextEditingController controller;
 
   @override
   void initState() {
     super.initState();
     controller = TextEditingController();
-    if (widget.input.fetch != null) {
-      context.read<DropdownCubit>().load(widget.input.fetch);
+    if (widget.fetcher != null) {
+      context.read<DropdownCubit>().load(widget.fetcher);
     }
   }
 
   @override
-  void didUpdateWidget(covariant Layout oldWidget) {
+  void didUpdateWidget(covariant _Layout oldWidget) {
     super.didUpdateWidget(oldWidget);
-    context.read<DropdownCubit>().load(widget.input.fetch);
+    context.read<DropdownCubit>().load(widget.fetcher);
 
-    if (widget.input.valueFromItems == null) {
-      setState(() => controller = TextEditingController());
-    }
+    // if (widget.input.valueFromItems == null) {
+    // setState(() => controller = TextEditingController());
+    // }
   }
 
   /// On change selection
@@ -58,7 +66,7 @@ class _LayoutState extends State<Layout> {
                         onSelected: onChange,
                         requestFocusOnTap: true,
                         width: constrained.maxWidth,
-                        initialSelection: widget.input.valueFromItems,
+                        // initialSelection: widget.input.valueFromItems,
                         label: widget.label != null ? Text(widget.label!) : null,
                         errorText: widget.input.display ? widget.input.error : null,
                         trailingIcon: switch (state) {
@@ -68,7 +76,7 @@ class _LayoutState extends State<Layout> {
                           _ => SizedBox.shrink(),
                         },
                         dropdownMenuEntries: [
-                          ...widget.input.items.map<DropdownMenuEntry<Valuable>>(
+                          ...widget.items.map<DropdownMenuEntry<Valuable>>(
                             (value) =>
                                 DropdownMenuEntry<Valuable>(value: value, label: value.title),
                           ),

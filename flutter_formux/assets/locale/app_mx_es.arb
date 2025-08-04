@@ -32,6 +32,14 @@
       }
     }
   },
+  "maxValue": "El valor máximo permitido es {max}",
+  "@maxValue": {
+    "placeholders": {
+      "max": {
+        "type": "num"
+      }
+    }
+  },
   "fixedLength": "La longitud debe ser de {length} carácteres",
   "@fixedLength": {
     "placeholders": {

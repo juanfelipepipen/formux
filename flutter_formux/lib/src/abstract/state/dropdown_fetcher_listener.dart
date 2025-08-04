@@ -1,14 +1,15 @@
+import 'package:flutter_formux/flutter_formux.dart';
+import 'package:pipen/valuable.dart';
 import 'package:pipen_bloc/pipen_bloc.dart';
-import 'package:formux/formux.dart';
 
-class DropdownFetcherListener<T> extends BlocListenFetch<List<T>>
+class DropdownFetcherListener extends BlocListenFetch<ValuableList>
     implements BlocListenExceptionsIgnore {
   DropdownFetcherListener({this.onChange});
 
-  final Function(DropdownInputEvent<T>)? onChange;
+  final Function(ValuableInputEvent event)? onChange;
 
   @override
   get success => (items) {
-    onChange?.call(DropdownSetItems<T>(items: items));
+    onChange?.call(ValuableInputEvent.setItems(items));
   };
 }
