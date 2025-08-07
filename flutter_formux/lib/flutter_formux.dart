@@ -34,6 +34,7 @@ export 'src/inputs/formux_valuable_input.dart';
 export 'src/inputs/formux_valuable_fetch_input.dart';
 export 'src/inputs/formux_email_input.dart';
 export 'src/inputs/formux_integer_input.dart';
+export 'src/inputs/formux_date_input.dart';
 
 /// Dropdown
 export 'src/fields/dropdown/fetcher/formux_dropdown_fetcher_field.dart';
