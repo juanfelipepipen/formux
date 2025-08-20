@@ -27,6 +27,7 @@ class FormuxValuableFetchInput extends FormuxValuableType with FormuxTranslation
         value = event.value;
       },
       ValuableInputSetItems() => () {
+        fetch = null;
         items = event.items;
       },
       ValuableInputSetFetchClear() => () {
