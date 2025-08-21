@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_formux/flutter_formux.dart';
+import 'package:flutter/cupertino.dart';
 
 class WidthModeBuilder extends StatelessWidget {
   const WidthModeBuilder({super.key, required this.builder});

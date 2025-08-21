@@ -1,13 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_formux/flutter_formux.dart';
 import 'package:flutter_formux/src/components/builder/fetcher_field_builder.dart';
+import 'package:flutter_formux/src/components/container/formux_field_spacer.dart';
 import 'package:flutter_formux/src/components/builder/width_mode_builder.dart';
-import 'package:flutter_formux/src/components/on_init.dart';
-import 'package:flutter_formux/src/state/dropdown/state/fetch_field_cubit.dart';
-import 'package:formux/formux.dart';
-import 'package:pipen/components.dart';
+import 'package:flutter_formux/flutter_formux.dart';
 import 'package:pipen_bloc/pipen_bloc.dart';
+import 'package:flutter/material.dart';
+import 'package:formux/formux.dart';
 
 typedef DropdownBuilderParams<T> =
     ({
@@ -49,11 +46,19 @@ class _FormuxDropdownFieldBuilderState<T> extends State<FormuxDropdownFieldBuild
   }
 
   @override
+  void didUpdateWidget(covariant FormuxDropdownFieldBuilder<T> oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.value == null) {
+      setState(() => controller.text = '');
+    }
+  }
+
+  @override
   Widget build(BuildContext context) => FetcherFieldBuilder<T>(
+    fetcher: widget.fetcher,
     onItems: widget.field.onItems,
     builder:
-        (context, state, bloc) => OnInit(
-          callback: () => context.read<FetchFieldCubit<T>>().load(widget.fetcher),
+        (context, state, bloc) => FormuxFieldSpacer(
           child: WidthModeBuilder(
             builder:
                 (context, width) => DropdownMenu<T>(
@@ -67,10 +72,9 @@ class _FormuxDropdownFieldBuilderState<T> extends State<FormuxDropdownFieldBuild
                   errorText: widget.input.display ? widget.input.error : null,
                   initialSelection: widget.field.initialSelector(widget.field.items),
                   trailingIcon: switch (state) {
-                    FetchPending() => null,
-                    FetchSuccess() => null,
                     FetchLoading() => FormuxFieldSpinner(),
                     FetchFail() => IconButton(icon: Icon(Icons.refresh), onPressed: bloc.refresh),
+                    _ => null,
                   },
                   dropdownMenuEntries:
                       widget.field.items

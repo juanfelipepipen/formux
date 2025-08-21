@@ -1,6 +1,6 @@
+import 'package:flutter_formux/src/components/container/formux_field_spacer.dart';
 import 'package:flutter_formux/flutter_formux.dart';
 import 'package:flutter/material.dart';
-import 'package:pipen/components.dart';
 import 'package:pipen/extensions.dart';
 import 'package:formux/formux.dart';
 
@@ -141,7 +141,7 @@ class FormuxTextField extends StatelessWidget {
   final int? minLines;
 
   @override
-  Widget build(BuildContext context) => PipenGap.verySmall(
+  Widget build(BuildContext context) => FormuxFieldSpacer(
     child: FormuxControllerContainer(
       input: input,
       builder:

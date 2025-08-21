@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_formux/flutter_formux.dart';
 import 'package:flutter_formux/src/fields/dropdown/builder/formux_dropdown_field_builder.dart';
+import 'package:flutter_formux/flutter_formux.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:pipen/valuable.dart';
 
 class FormuxDropdownFetcherField extends StatelessWidget {

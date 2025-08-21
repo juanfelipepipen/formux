@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_formux/src/models/formux_theme.dart';
+import 'package:flutter/cupertino.dart';
 
 class FormuxThemeData extends InheritedWidget {
   const FormuxThemeData({super.key, required this.theme, required super.child});

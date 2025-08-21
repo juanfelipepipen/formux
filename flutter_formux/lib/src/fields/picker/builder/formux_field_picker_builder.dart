@@ -1,7 +1,8 @@
+import 'package:flutter_formux/src/state/dropdown/listener/fetch_field_listener.dart';
+import 'package:flutter_formux/src/components/container/formux_field_spacer.dart';
+import 'package:flutter_formux/src/state/dropdown/state/fetch_field_cubit.dart';
 import 'package:flutter_formux/flutter_formux.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_formux/src/state/dropdown/listener/fetch_field_listener.dart';
-import 'package:flutter_formux/src/state/dropdown/state/fetch_field_cubit.dart';
 import 'package:pipen_bloc/pipen_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:pipen/valuable.dart';
@@ -96,16 +97,20 @@ class _UcorePickerFetcherLayoutState<T> extends State<_UcorePickerFetcherLayout<
     builder:
         (context, state, bloc) => BlocListenerFetch<FetchFieldCubit<T>, List<T>>(
           listener: FetchFieldListener(onItems: widget.params.onItems),
-          child: FormuxInputField(
-            label: widget.label,
-            input: widget.input,
-            value: widget.value,
-            suffixIcon: switch (state) {
-              FetchPending() ||
-              FetchSuccess() => IconButton(icon: Icon(Icons.keyboard_arrow_down), onPressed: open),
-              FetchLoading() => FormuxFieldSpinner(),
-              FetchFail() => IconButton(icon: Icon(Icons.refresh), onPressed: bloc.refresh),
-            },
+          child: FormuxFieldSpacer(
+            child: FormuxInputField(
+              label: widget.label,
+              input: widget.input,
+              value: widget.value,
+              suffixIcon: switch (state) {
+                FetchPending() || FetchSuccess() => IconButton(
+                  icon: Icon(Icons.keyboard_arrow_down),
+                  onPressed: open,
+                ),
+                FetchLoading() => FormuxFieldSpinner(),
+                FetchFail() => IconButton(icon: Icon(Icons.refresh), onPressed: bloc.refresh),
+              },
+            ),
           ),
         ),
   );
