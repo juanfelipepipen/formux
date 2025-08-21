@@ -5,8 +5,8 @@ import 'package:flutter_formux/src/state/dropdown/state/fetch_field_cubit.dart';
 import 'package:pipen/components.dart';
 import 'package:pipen_bloc/pipen_bloc.dart';
 
-class FetcherBuilderField<T> extends StatelessWidget {
-  const FetcherBuilderField({super.key, required this.builder, required this.onItems});
+class FetcherFieldBuilder<T> extends StatelessWidget {
+  const FetcherFieldBuilder({super.key, required this.builder, required this.onItems});
 
   final Function(List<T>) onItems;
   final Widget Function(BuildContext context, FetchState<List<T>> state, FetchFieldCubit<T> bloc)

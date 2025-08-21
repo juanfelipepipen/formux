@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_formux/flutter_formux.dart';
-import 'package:flutter_formux/src/components/builder/fetcher_builder_field.dart';
+import 'package:flutter_formux/src/components/builder/fetcher_field_builder.dart';
+import 'package:flutter_formux/src/components/builder/width_mode_builder.dart';
 import 'package:flutter_formux/src/components/on_init.dart';
 import 'package:flutter_formux/src/state/dropdown/state/fetch_field_cubit.dart';
 import 'package:formux/formux.dart';
@@ -48,22 +49,19 @@ class _FormuxDropdownFieldBuilderState<T> extends State<FormuxDropdownFieldBuild
   }
 
   @override
-  Widget build(BuildContext context) => FetcherBuilderField<T>(
+  Widget build(BuildContext context) => FetcherFieldBuilder<T>(
     onItems: widget.field.onItems,
     builder:
         (context, state, bloc) => OnInit(
           callback: () => context.read<FetchFieldCubit<T>>().load(widget.fetcher),
-          child: PipenRow(
-            vertical: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                child: DropdownMenu<T>(
+          child: WidthModeBuilder(
+            builder:
+                (context, width) => DropdownMenu<T>(
+                  width: width,
                   enableFilter: true,
                   enableSearch: true,
                   controller: controller,
-                  width: double.infinity,
                   requestFocusOnTap: true,
-                  // width: constrained.maxWidth,
                   onSelected: widget.field.onChange,
                   label: widget.label != null ? Text(widget.label!) : null,
                   errorText: widget.input.display ? widget.input.error : null,
@@ -79,8 +77,6 @@ class _FormuxDropdownFieldBuilderState<T> extends State<FormuxDropdownFieldBuild
                           .map((e) => DropdownMenuEntry<T>(value: e, label: widget.field.lister(e)))
                           .toList(),
                 ),
-              ),
-            ],
           ),
         ),
   );
