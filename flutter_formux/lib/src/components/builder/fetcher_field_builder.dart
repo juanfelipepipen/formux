@@ -26,12 +26,10 @@ class FetcherFieldBuilder<T> extends StatelessWidget {
       builder:
           (context, state, bloc) => BlocListenerFetch<FetchFieldCubit<T>, List<T>>(
             listener: FetchFieldListener(onItems: onItems),
-            child: PipenGap.verySmall(
-              child: _BuilderLayout<T>(
-                fetcher: fetcher,
-                onItems: onItems,
-                child: builder(context, state, bloc),
-              ),
+            child: _BuilderLayout<T>(
+              fetcher: fetcher,
+              onItems: onItems,
+              child: builder(context, state, bloc),
             ),
           ),
     ),

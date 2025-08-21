@@ -1,5 +1,6 @@
 {
   "required": "Campo requerido",
+  "locationRequired": "Ubicación requerida",
   "selectCountry": "Debe seleccionar un país",
   "formatIncorrect": "El formato no es correcto",
   "emailFormatIncorrect": "El formato no es correcto",

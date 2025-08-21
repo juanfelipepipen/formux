@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_formux/src/components/container/formux_field_spacer.dart';
 import 'package:pipen/components.dart';
 import 'package:pipen/extensions.dart';
 import 'package:formux/formux.dart';
@@ -34,7 +35,7 @@ class FormuxInputContainer extends StatelessWidget {
 
   bool get hasError => errorText != null;
   @override
-  Widget build(BuildContext context) => PipenGap.small(
+  Widget build(BuildContext context) => FormuxFieldSpacer(
     child: PipenGestureTap(
       onTap: onTap,
       child: InputDecorator(

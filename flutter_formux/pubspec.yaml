@@ -30,6 +30,7 @@ dependencies:
   formux: ^2.1.1
   pipen_bloc: ^1.2.4
   file_picker: ^10.2.0
+  latlong2: ^0.9.1
 
 dev_dependencies:
   flutter_test:

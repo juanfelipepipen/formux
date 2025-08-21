@@ -1,3 +1,5 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'formux_localization.dart';
 
 // ignore_for_file: type=lint
@@ -8,6 +10,9 @@ class FormuxLocalizationEs extends FormuxLocalization {
 
   @override
   String get required => 'Campo requerido';
+
+  @override
+  String get locationRequired => 'Ubicación requerida';
 
   @override
   String get selectCountry => 'Debe seleccionar un país';

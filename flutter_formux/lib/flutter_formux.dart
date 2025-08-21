@@ -10,6 +10,7 @@ export 'src/abstract/formux_error_codes_manager.dart';
 export 'src/l10n/formux_localization.dart';
 export 'src/l10n/formux_localization_es.dart';
 
+/// Components
 export 'src/components/container/formux_controller_container.dart';
 export 'src/components/container/formux_currency_controller_container.dart';
 export 'src/components/container/formux_input_container.dart';
@@ -21,6 +22,7 @@ export 'src/components/validator/formux_bloc_form_validator.dart';
 export 'src/tool/formux_initializer.dart';
 export 'src/tool/formux_tool.dart';
 export 'src/tool/formux_years_generator.dart';
+export 'src/components/builder/fetcher_field_builder.dart';
 
 /// Inputs
 export 'src/inputs/formux_boolean_input.dart';
@@ -28,15 +30,17 @@ export 'src/inputs/formux_file_input.dart';
 export 'src/inputs/formux_boolean_null_input.dart';
 export 'src/inputs/formux_double_input.dart';
 export 'src/inputs/formux_string_input.dart';
+export 'src/inputs/formux_string_value_input.dart';
 export 'src/inputs/formux_valuable_input.dart';
 export 'src/inputs/formux_valuable_fetch_input.dart';
 export 'src/inputs/formux_email_input.dart';
 export 'src/inputs/formux_integer_input.dart';
 export 'src/inputs/formux_date_input.dart';
+export 'src/inputs/formux_lat_lng_input.dart';
 
 /// Dropdown
 export 'src/fields/dropdown/fetcher/formux_dropdown_fetcher_field.dart';
-
+export 'src/fields/dropdown/builder/formux_dropdown_field_builder.dart';
 export 'src/fields/switch/formux_switch_button.dart';
 export 'src/fields/text/formux_password_field.dart';
 export 'src/fields/text/formux_text_field.dart';
