@@ -2,14 +2,14 @@ import 'package:pipen/valuable.dart';
 import 'package:formux/formux.dart';
 
 abstract class FormuxValuableType extends FormuxInput<Valuable?> {
-  FormuxValuableType({required super.value, List<Valuable>? items, super.required, this.fetch}) {
+  FormuxValuableType({required super.value, ValuableList? items, super.required, this.fetch}) {
     if (items != null) {
       this.items = items;
     }
   }
 
   ValuableListFetchCallback? fetch;
-  List<Valuable> items = [];
+  ValuableList items = [];
 
   /// Get the current value index from items list
   int? getValueIndexList() {

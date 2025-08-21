@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FieldLoader extends StatelessWidget {
-  const FieldLoader({super.key});
+class FormuxFieldSpinner extends StatelessWidget {
+  const FormuxFieldSpinner({super.key});
 
   @override
   Widget build(BuildContext context) => SizedBox.square(

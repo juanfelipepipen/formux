@@ -1,5 +1,4 @@
-import 'package:flutter_formux/src/widgets/container/formux_input_container.dart';
-import 'package:flutter_formux/src/inputs/formux_string_input.dart';
+import 'package:flutter_formux/flutter_formux.dart';
 import 'package:flutter/material.dart';
 import 'package:pipen/extensions.dart';
 import 'package:formux/formux.dart';

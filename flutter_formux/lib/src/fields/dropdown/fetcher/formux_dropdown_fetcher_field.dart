@@ -1,22 +1,7 @@
-import 'package:flutter_formux/src/abstract/state/dropdown_fetcher_listener.dart';
-import 'package:flutter_formux/src/abstract/state/dropdown_fetcher_cubit.dart';
-import 'package:flutter_formux/src/fields/dropdown/fetch/formux_dropdown_field_builder.dart';
-import 'package:flutter_formux/src/inputs/formux_integer_input.dart';
-import 'package:flutter_formux/src/inputs/formux_valuable_fetch_input.dart';
-import 'package:flutter_formux/src/widgets/loader/field_loader.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pipen_bloc/pipen_bloc.dart';
-import 'package:pipen/components.dart';
-import 'package:pipen/extensions.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_formux/flutter_formux.dart';
+import 'package:flutter_formux/src/fields/dropdown/builder/formux_dropdown_field_builder.dart';
 import 'package:pipen/valuable.dart';
-
-part 'layout.dart';
-part 'formux_dropdown_integer_fetch_field.dart';
-
-typedef DropdownCubit = DropdownFetcherCubit;
-typedef DropdownListener = DropdownFetcherListener;
-typedef DropdownBuilder = BlocBuilderFetch<DropdownCubit, ValuableList>;
 
 class FormuxDropdownFetcherField extends StatelessWidget {
   const FormuxDropdownFetcherField({
@@ -33,11 +18,28 @@ class FormuxDropdownFetcherField extends StatelessWidget {
   final String? label;
 
   @override
-  Widget build(BuildContext context) => BlocProvider<DropdownCubit>(
-    create: (_) => DropdownCubit(),
-    child: BlocListenerFetch<DropdownCubit, ValuableList>(
-      listener: DropdownListener(onChange: onChange),
-      child: Layout(input: input, label: label, onChange: onChange),
+  Widget build(BuildContext context) => FormuxDropdownFieldBuilder<Valuable>(
+    input: input,
+    state: state,
+    label: label,
+    fetcher: input.fetch,
+    value: input.valueFromItems?.value,
+    field: (
+      items: input.items,
+      lister: (value) => value.title,
+      onItems: (items) {
+        onChange(ValuableInputEvent.setItems(items));
+      },
+      initialSelector: (items) {
+        if (input.value == null) return null;
+        final index = items.indexWhere((e) => e.value == input.value!.value);
+        return index == -1 ? null : items[index];
+      },
+      onChange: (value) {
+        if (value != null) {
+          onChange(ValuableInputEvent.setValue(value));
+        }
+      },
     ),
   );
 }

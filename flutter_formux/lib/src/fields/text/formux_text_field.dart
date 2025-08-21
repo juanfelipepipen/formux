@@ -1,5 +1,4 @@
-import 'package:flutter_formux/src/widgets/container/formux_controller_container.dart';
-import 'package:flutter_formux/src/fields/text/formux_password_field.dart';
+import 'package:flutter_formux/flutter_formux.dart';
 import 'package:flutter/material.dart';
 import 'package:pipen/components.dart';
 import 'package:pipen/extensions.dart';
@@ -142,7 +141,7 @@ class FormuxTextField extends StatelessWidget {
   final int? minLines;
 
   @override
-  Widget build(BuildContext context) => PipenGap.small(
+  Widget build(BuildContext context) => PipenGap.verySmall(
     child: FormuxControllerContainer(
       input: input,
       builder:

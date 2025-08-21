@@ -1,17 +1,16 @@
 import 'package:pipen_bloc/pipen_bloc.dart';
-import 'package:pipen/valuable.dart';
 
-class DropdownFetcherCubit extends CubitFetchResolverPending<ValuableList> {
-  DropdownFetcherCubit({this.initial}) : super();
+class FetchFieldCubit<T> extends CubitFetchResolverPending<List<T>> {
+  FetchFieldCubit({this.initial}) : super();
 
   /// Initial value
-  Valuable? initial;
+  T? initial;
 
   /// Initial fetcher
-  ValuableListFetchCallback? fetcher;
+  Future<List<T>> Function()? fetcher;
 
   /// Load valuable list from fetcher
-  void load(ValuableListFetchCallback? fetcher) {
+  void load(Future<List<T>> Function()? fetcher) {
     if (fetcher != null && fetcher != this.fetcher) {
       this.fetcher = fetcher;
       fetch(_fetcher(fetcher));
@@ -23,6 +22,7 @@ class DropdownFetcherCubit extends CubitFetchResolverPending<ValuableList> {
     success([]);
   }
 
+  /// Retry fetch data
   void refresh() {
     if (fetcher != null) {
       fetch(_fetcher(fetcher!));
@@ -30,7 +30,7 @@ class DropdownFetcherCubit extends CubitFetchResolverPending<ValuableList> {
   }
 
   /// Fetcher for state
-  Future<ValuableList> _fetcher(ValuableListFetchCallback fetch) async {
+  Future<List<T>> _fetcher(Future<List<T>> Function() fetch) async {
     final list = await fetch();
     return list;
   }
