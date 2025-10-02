@@ -4,8 +4,10 @@ class FormuxTheme {
   final WidthMode widthMode;
   final double spacer;
 
-  FormuxTheme copyWith({WidthMode? widthMode, double? spacer}) =>
-      FormuxTheme(spacer: spacer ?? this.spacer, widthMode: widthMode ?? this.widthMode);
+  FormuxTheme copyWith({WidthMode? widthMode, double? spacer}) => FormuxTheme(
+    spacer: spacer ?? this.spacer,
+    widthMode: widthMode ?? this.widthMode,
+  );
 }
 
 enum WidthMode { max, min, layout }

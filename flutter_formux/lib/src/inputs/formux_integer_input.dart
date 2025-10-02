@@ -8,9 +8,13 @@ class FormuxIntegerInput extends FormuxInput<int?> with FormuxTranslations {
   FormuxIntegerInput({super.value, this.fetcher, this.maxValue, IntList? items})
     : items = items ?? [];
 
-  FormuxIntegerInput.notRequired({super.value, this.fetcher, this.maxValue, IntList? items})
-    : items = items ?? [],
-      super(required: false);
+  FormuxIntegerInput.notRequired({
+    super.value,
+    this.fetcher,
+    this.maxValue,
+    IntList? items,
+  }) : items = items ?? [],
+       super(required: false);
 
   IntListFutureCallback? fetcher;
   IntList items = [];
@@ -63,8 +67,10 @@ class FormuxIntegerInput extends FormuxInput<int?> with FormuxTranslations {
 }
 
 sealed class IntegerInputEvent {
-  static IntegerInputSetValue setValue(int value) => IntegerInputSetValue(value: value);
-  static IntegerInputSetItems setItems(IntList items) => IntegerInputSetItems(items: items);
+  static IntegerInputSetValue setValue(int value) =>
+      IntegerInputSetValue(value: value);
+  static IntegerInputSetItems setItems(IntList items) =>
+      IntegerInputSetItems(items: items);
   static IntegerInputSetFetch setFetch(IntListFutureCallback fetch) =>
       IntegerInputSetFetch(fetch: fetch);
   static IntegerInputSetFetchClear setFetchClear(IntListFutureCallback fetch) =>

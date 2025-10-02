@@ -7,6 +7,6 @@ class FetchFieldListener<T> extends BlocListenFetch<List<T>> {
 
   @override
   get success => (items) {
-        onItems(items);
-      };
+    onItems(items);
+  };
 }

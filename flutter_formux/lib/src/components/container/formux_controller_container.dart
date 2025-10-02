@@ -2,13 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:formux/formux.dart';
 
 class FormuxControllerContainer extends StatefulWidget {
-  const FormuxControllerContainer({super.key, required this.input, required this.builder});
+  const FormuxControllerContainer({
+    super.key,
+    required this.input,
+    required this.builder,
+  });
 
   final Widget Function(BuildContext, TextEditingController, String?) builder;
   final FormuxInput input;
 
   @override
-  State<FormuxControllerContainer> createState() => _FormuxControllerContainerState();
+  State<FormuxControllerContainer> createState() =>
+      _FormuxControllerContainerState();
 }
 
 class _FormuxControllerContainerState extends State<FormuxControllerContainer> {
@@ -37,5 +42,6 @@ class _FormuxControllerContainerState extends State<FormuxControllerContainer> {
   }
 
   @override
-  Widget build(BuildContext context) => widget.builder(context, controller, errorText);
+  Widget build(BuildContext context) =>
+      widget.builder(context, controller, errorText);
 }

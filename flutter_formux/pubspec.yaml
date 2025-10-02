@@ -8,8 +8,8 @@ description: Interface tools for validating forms, managing state with BLoC, int
   Material components.
 
 environment:
-  sdk: ">=3.7.2 <4.0.0"
-  flutter: ">=3.27.0"
+  sdk: ^3.9.2
+  flutter: ^3.35.0
 
 dependencies:
   flutter:
@@ -23,7 +23,7 @@ dependencies:
   intl: ^0.20.0
   email_validator: ^3.0.0
   flutter_skeleton_ui: ^0.0.6
-  currency_textfield: ^4.14.1
+  currency_textfield: ^5.0.0+1
 
   # Pipen libs
   pipen: ^2.2.2

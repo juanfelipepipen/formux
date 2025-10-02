@@ -38,6 +38,9 @@ class FormuxLocalizationEs extends FormuxLocalization {
   String get onlyNumbers => 'Solo se admiten números';
 
   @override
+  String get onlyAlphanumeric => 'Solo se permiten letras y números';
+
+  @override
   String get dniCurpFormat => 'Formato de CURP incorrecto';
 
   @override

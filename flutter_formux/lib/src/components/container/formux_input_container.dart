@@ -12,7 +12,9 @@ class FormuxInputContainer extends StatelessWidget {
     this.onTap,
     this.style,
     this.border,
+    this.filled,
     this.enabled,
+    this.fillColor,
     this.suffixIcon,
     this.errorBorder,
     this.contentPadding,
@@ -27,9 +29,11 @@ class FormuxInputContainer extends StatelessWidget {
   final Widget? suffixIcon;
   final FormuxInput input;
   final TextStyle? style;
+  final Color? fillColor;
   final Widget? child;
   final bool? enabled;
   final String? label;
+  final bool? filled;
 
   String? get errorText => input.display ? input.error : null;
 
@@ -41,6 +45,8 @@ class FormuxInputContainer extends StatelessWidget {
       child: InputDecorator(
         decoration: InputDecoration(
           labelText: label,
+          filled: filled,
+          fillColor: fillColor,
           errorText: errorText,
           enabledBorder: border,
           suffixIcon: suffixIcon,
@@ -52,11 +58,11 @@ class FormuxInputContainer extends StatelessWidget {
           errorStyle: TextStyle(color: context.themeColors.error),
           errorBorder: context.theme.inputDecorationTheme.errorBorder,
           focusedBorder: context.theme.inputDecorationTheme.focusedBorder,
-          floatingLabelStyle: context.theme.inputDecorationTheme.floatingLabelStyle,
-          labelStyle:
-              input.display
-                  ? context.theme.inputDecorationTheme.hintStyle
-                  : context.theme.inputDecorationTheme.hintStyle,
+          floatingLabelStyle:
+              context.theme.inputDecorationTheme.floatingLabelStyle,
+          labelStyle: input.display
+              ? context.theme.inputDecorationTheme.hintStyle
+              : context.theme.inputDecorationTheme.hintStyle,
         ),
         child: child,
       ),

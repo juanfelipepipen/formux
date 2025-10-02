@@ -4,8 +4,14 @@ import 'package:pipen/valuable.dart';
 
 typedef OnValuableEventChange = Function(ValuableInputEvent);
 
-class FormuxValuableFetchInput extends FormuxValuableType with FormuxTranslations {
-  FormuxValuableFetchInput({super.value, super.items, super.fetch, super.required});
+class FormuxValuableFetchInput extends FormuxValuableType
+    with FormuxTranslations {
+  FormuxValuableFetchInput({
+    super.value,
+    super.items,
+    super.fetch,
+    super.required,
+  });
 
   @override
   void clear() {
@@ -70,12 +76,15 @@ class FormuxValuableFetchInput extends FormuxValuableType with FormuxTranslation
 }
 
 sealed class ValuableInputEvent {
-  static ValuableInputSetValue setValue(Valuable value) => ValuableInputSetValue(value: value);
-  static ValuableInputSetItems setItems(ValuableList items) => ValuableInputSetItems(items: items);
+  static ValuableInputSetValue setValue(Valuable value) =>
+      ValuableInputSetValue(value: value);
+  static ValuableInputSetItems setItems(ValuableList items) =>
+      ValuableInputSetItems(items: items);
   static ValuableInputSetFetch setFetch(ValuableListFetchCallback fetch) =>
       ValuableInputSetFetch(fetch: fetch);
-  static ValuableInputSetFetchClear setFetchClear(ValuableListFetchCallback fetch) =>
-      ValuableInputSetFetchClear(fetch: fetch);
+  static ValuableInputSetFetchClear setFetchClear(
+    ValuableListFetchCallback fetch,
+  ) => ValuableInputSetFetchClear(fetch: fetch);
 }
 
 class ValuableInputSetValue extends ValuableInputEvent {

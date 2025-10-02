@@ -16,7 +16,8 @@ class FormuxInputErrorCodeStrategy extends ListenException {
     listener = listener as ListenFormuxError;
 
     // List of error codes with her translation
-    Map<String, String> codes = FlutterFormux.errorsManager?.errorsTranslations.call(context) ?? {};
+    Map<String, String> codes =
+        FlutterFormux.errorsManager?.errorsTranslations.call(context) ?? {};
 
     // Handle if error code is not for a input on form
     onUnknownCode() {

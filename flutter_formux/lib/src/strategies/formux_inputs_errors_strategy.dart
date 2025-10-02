@@ -12,10 +12,9 @@ class FormuxInputsErrorsStrategy extends ListenException {
   @override
   void handle(context, listener, exception) {
     exception = exception as GraphqlValidationErrors;
-    final errors =
-        exception.errors
-            .map<InputError>((e) => InputError(field: e.field, errors: e.errors))
-            .toList();
+    final errors = exception.errors
+        .map<InputError>((e) => InputError(field: e.field, errors: e.errors))
+        .toList();
 
     onInputErrors() {
       FlutterFormux.errorsManager?.onInputErrors.call(context, errors);

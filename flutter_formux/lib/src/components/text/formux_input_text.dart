@@ -4,7 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:formux/formux.dart';
 
 class FormuxInputText extends StatelessWidget {
-  const FormuxInputText({super.key, this.value, this.enabled, this.input, required this.label});
+  const FormuxInputText({
+    super.key,
+    this.value,
+    this.enabled,
+    this.input,
+    required this.label,
+  });
 
   final FormuxInput? input;
   final bool? enabled;
@@ -16,14 +22,14 @@ class FormuxInputText extends StatelessWidget {
     label: label,
     enabled: enabled,
     input: input ?? FormuxStringInput(),
-    floatingLabelBehavior:
-        value == null ? FloatingLabelBehavior.never : FloatingLabelBehavior.always,
+    floatingLabelBehavior: value == null
+        ? FloatingLabelBehavior.never
+        : FloatingLabelBehavior.always,
     child: Text(
       value ?? label,
-      style:
-          value == null
-              ? context.theme.inputDecorationTheme.hintStyle
-              : context.theme.inputDecorationTheme.labelStyle,
+      style: value == null
+          ? context.theme.inputDecorationTheme.hintStyle
+          : context.theme.inputDecorationTheme.labelStyle,
     ),
   );
 }

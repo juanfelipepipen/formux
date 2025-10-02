@@ -17,5 +17,6 @@ class FormuxThemeData extends InheritedWidget {
   }
 
   @override
-  bool updateShouldNotify(FormuxThemeData oldWidget) => theme != oldWidget.theme;
+  bool updateShouldNotify(FormuxThemeData oldWidget) =>
+      theme != oldWidget.theme;
 }

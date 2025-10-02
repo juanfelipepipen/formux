@@ -8,7 +8,9 @@ class FormuxFieldSpacer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-    padding: EdgeInsets.symmetric(vertical: FormuxThemeData.maybeOf(context)?.theme.spacer ?? 0),
+    padding: EdgeInsets.symmetric(
+      vertical: FormuxThemeData.maybeOf(context)?.theme.spacer ?? 0,
+    ),
     child: child,
   );
 }

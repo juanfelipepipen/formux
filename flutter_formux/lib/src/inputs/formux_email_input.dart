@@ -35,7 +35,10 @@ class FormuxEmailInput extends FormuxStringType with FormuxTranslations {
     }
 
     for (String domain in allowedDomains) {
-      assertion(!value.endsWith('@$domain'), translations.emailDomainOutsideAllowed);
+      assertion(
+        !value.endsWith('@$domain'),
+        translations.emailDomainOutsideAllowed,
+      );
     }
   }
 

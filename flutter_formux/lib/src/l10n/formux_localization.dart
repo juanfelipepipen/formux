@@ -148,6 +148,12 @@ abstract class FormuxLocalization {
   /// **'Solo se admiten números'**
   String get onlyNumbers;
 
+  /// No description provided for @onlyAlphanumeric.
+  ///
+  /// In es, this message translates to:
+  /// **'Solo se permiten letras y números'**
+  String get onlyAlphanumeric;
+
   /// No description provided for @dniCurpFormat.
   ///
   /// In es, this message translates to:

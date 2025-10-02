@@ -2,7 +2,8 @@ import 'package:flutter_formux/src/mixin/translations_mixin.dart';
 import 'package:formux/formux.dart';
 import 'package:pipen/config/typedef.dart';
 
-class FormuxStringValueInput extends FormuxInput<String?> with FormuxTranslations {
+class FormuxStringValueInput extends FormuxInput<String?>
+    with FormuxTranslations {
   FormuxStringValueInput({
     super.value,
     this.length,
@@ -11,8 +12,17 @@ class FormuxStringValueInput extends FormuxInput<String?> with FormuxTranslation
     StringList? items,
   }) : items = items ?? [];
 
-  factory FormuxStringValueInput.notRequired({String? value, int? length, StringList? items}) {
-    return FormuxStringValueInput(required: false, value: value, length: length, items: items);
+  factory FormuxStringValueInput.notRequired({
+    String? value,
+    int? length,
+    StringList? items,
+  }) {
+    return FormuxStringValueInput(
+      required: false,
+      value: value,
+      length: length,
+      items: items,
+    );
   }
 
   StringList items = [];

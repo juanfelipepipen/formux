@@ -61,15 +61,16 @@ class _FormuxPasswordFieldState extends State<FormuxPasswordField> {
     onSubmitted: widget.onSubmitted,
     floatingLabelBehavior: widget.floatingLabelBehavior,
     label: widget.label ?? FormuxLocalization.of(context)!.password,
-    suffixIcon:
-        widget.passwordViewer
-            ? Padding(
-              padding: widget.suffixPadding ?? EdgeInsets.zero,
-              child: IconButton(
-                onPressed: () => setState(() => showPassword = !showPassword),
-                icon: Icon(showPassword ? CupertinoIcons.eye_slash : CupertinoIcons.eye),
+    suffixIcon: widget.passwordViewer
+        ? Padding(
+            padding: widget.suffixPadding ?? EdgeInsets.zero,
+            child: IconButton(
+              onPressed: () => setState(() => showPassword = !showPassword),
+              icon: Icon(
+                showPassword ? CupertinoIcons.eye_slash : CupertinoIcons.eye,
               ),
-            )
-            : null,
+            ),
+          )
+        : null,
   );
 }

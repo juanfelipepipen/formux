@@ -1,24 +1,34 @@
 import 'package:flutter_formux/src/mixin/translations_mixin.dart';
 import 'package:formux/formux.dart';
 
+enum FormuxStringInputValidations { onlyAlphanumeric }
+
 class FormuxStringInput extends FormuxStringType with FormuxTranslations {
   FormuxStringInput({
     String? value,
+    super.required,
     this.length,
     this.maxLength = 255,
-    super.required,
-  }) : super(value: value ?? '');
+    List<FormuxStringInputValidations>? validations,
+  }) : validations = validations ?? [],
+       super(value: value ?? '');
 
   factory FormuxStringInput.notRequired({String? value, int? length}) =>
       FormuxStringInput(required: false, value: value, length: length);
 
-  int maxLength;
-  int? length;
+  final List<FormuxStringInputValidations> validations;
+  final int maxLength;
+  final int? length;
 
   @override
   void validator() {
     assertion(value.isEmpty, translations.required);
     assertion(value.length > maxLength, translations.fixedLength(maxLength));
+
+    if (validations.contains(FormuxStringInputValidations.onlyAlphanumeric)) {
+      RegExp regex = RegExp(r'^[a-zA-Z0-9]+$');
+      assertion(!regex.hasMatch(value), translations.onlyAlphanumeric);
+    }
   }
 
   @override
@@ -33,10 +43,17 @@ class FormuxStringInput extends FormuxStringType with FormuxTranslations {
     this.value = value ?? '';
   }
 
-  FormuxStringInput copyWith({String? value}) => FormuxStringInput(
-        value: value,
-        length: length,
-        required: required,
-        maxLength: maxLength,
-      );
+  FormuxStringInput copyWith({
+    int? length,
+    String? value,
+    bool? required,
+    int? maxLength,
+    List<FormuxStringInputValidations>? validations,
+  }) => FormuxStringInput(
+    value: value ?? this.value,
+    length: length ?? this.length,
+    required: required ?? this.required,
+    maxLength: maxLength ?? this.maxLength,
+    validations: validations ?? this.validations,
+  );
 }

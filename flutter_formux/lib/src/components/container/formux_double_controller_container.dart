@@ -2,8 +2,8 @@ import 'package:flutter_formux/src/inputs/formux_double_input.dart';
 import 'package:currency_textfield/currency_textfield.dart';
 import 'package:flutter/cupertino.dart';
 
-class FormuxCurrencyControllerContainer extends StatefulWidget {
-  const FormuxCurrencyControllerContainer({
+class FormuxDoubleControllerContainer extends StatefulWidget {
+  const FormuxDoubleControllerContainer({
     super.key,
     required this.input,
     required this.builder,
@@ -13,12 +13,12 @@ class FormuxCurrencyControllerContainer extends StatefulWidget {
   final FormuxDoubleInput input;
 
   @override
-  State<FormuxCurrencyControllerContainer> createState() =>
-      _FormuxCurrencyControllerContainerState();
+  State<FormuxDoubleControllerContainer> createState() =>
+      _FormuxDoubleControllerContainerState();
 }
 
-class _FormuxCurrencyControllerContainerState
-    extends State<FormuxCurrencyControllerContainer> {
+class _FormuxDoubleControllerContainerState
+    extends State<FormuxDoubleControllerContainer> {
   late CurrencyTextFieldController controller;
 
   @override
@@ -35,7 +35,7 @@ class _FormuxCurrencyControllerContainerState
   }
 
   @override
-  void didUpdateWidget(covariant FormuxCurrencyControllerContainer oldWidget) {
+  void didUpdateWidget(covariant FormuxDoubleControllerContainer oldWidget) {
     compare();
     super.didUpdateWidget(oldWidget);
   }
@@ -46,7 +46,7 @@ class _FormuxCurrencyControllerContainerState
       currencySymbol: '',
       removeSymbol: true,
       decimalSymbol: '.',
-      thousandSymbol: ',',
+      thousandSymbol: '',
       initDoubleValue: value,
     );
   }

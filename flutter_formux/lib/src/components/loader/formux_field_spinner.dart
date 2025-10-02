@@ -5,7 +5,7 @@ class FormuxFieldSpinner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SizedBox.square(
-        dimension: 20,
-        child: CircularProgressIndicator(strokeWidth: 2.5),
-      );
+    dimension: 20,
+    child: CircularProgressIndicator(strokeWidth: 2.5),
+  );
 }

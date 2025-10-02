@@ -3,7 +3,6 @@ import 'package:flutter_formux/src/state/dropdown/state/fetch_field_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pipen_bloc/pipen_bloc.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:pipen/components.dart';
 
 class FetcherFieldBuilder<T> extends StatelessWidget {
   const FetcherFieldBuilder({
@@ -13,7 +12,11 @@ class FetcherFieldBuilder<T> extends StatelessWidget {
     required this.onItems,
   });
 
-  final Widget Function(BuildContext context, FetchState<List<T>> state, FetchFieldCubit<T> bloc)
+  final Widget Function(
+    BuildContext context,
+    FetchState<List<T>> state,
+    FetchFieldCubit<T> bloc,
+  )
   builder;
   final Future<List<T>> Function()? fetcher;
   final Function(List<T>) onItems;
@@ -23,8 +26,8 @@ class FetcherFieldBuilder<T> extends StatelessWidget {
     lazy: false,
     create: (_) => FetchFieldCubit<T>(),
     child: BlocBuilderFetch<FetchFieldCubit<T>, List<T>>(
-      builder:
-          (context, state, bloc) => BlocListenerFetch<FetchFieldCubit<T>, List<T>>(
+      builder: (context, state, bloc) =>
+          BlocListenerFetch<FetchFieldCubit<T>, List<T>>(
             listener: FetchFieldListener(onItems: onItems),
             child: _BuilderLayout<T>(
               fetcher: fetcher,
@@ -37,7 +40,12 @@ class FetcherFieldBuilder<T> extends StatelessWidget {
 }
 
 class _BuilderLayout<T> extends StatefulWidget {
-  const _BuilderLayout({super.key, this.fetcher, required this.child, required this.onItems});
+  const _BuilderLayout({
+    super.key,
+    this.fetcher,
+    required this.child,
+    required this.onItems,
+  });
 
   final Future<List<T>> Function()? fetcher;
   final Function(List<T>) onItems;

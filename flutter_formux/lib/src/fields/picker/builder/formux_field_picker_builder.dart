@@ -8,8 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:pipen/valuable.dart';
 import 'package:formux/formux.dart';
 
-typedef FetchInputParams<T> =
-    ({List<T> items, Function(List<T>) onPick, Function(List<T> items) onItems});
+typedef FetchInputParams<T> = ({
+  List<T> items,
+  Function(List<T>) onPick,
+  Function(List<T> items) onItems,
+});
 
 class FormuxFieldPickerBuilder<T> extends StatelessWidget {
   const FormuxFieldPickerBuilder({
@@ -65,10 +68,12 @@ class _UcorePickerFetcherLayout<T> extends StatefulWidget {
   final dynamic state;
 
   @override
-  State<_UcorePickerFetcherLayout<T>> createState() => _UcorePickerFetcherLayoutState<T>();
+  State<_UcorePickerFetcherLayout<T>> createState() =>
+      _UcorePickerFetcherLayoutState<T>();
 }
 
-class _UcorePickerFetcherLayoutState<T> extends State<_UcorePickerFetcherLayout<T>> {
+class _UcorePickerFetcherLayoutState<T>
+    extends State<_UcorePickerFetcherLayout<T>> {
   @override
   void initState() {
     super.initState();
@@ -93,25 +98,29 @@ class _UcorePickerFetcherLayoutState<T> extends State<_UcorePickerFetcherLayout<
   }
 
   @override
-  Widget build(BuildContext context) => BlocBuilderFetch<FetchFieldCubit<T>, List<T>>(
-    builder:
-        (context, state, bloc) => BlocListenerFetch<FetchFieldCubit<T>, List<T>>(
-          listener: FetchFieldListener(onItems: widget.params.onItems),
-          child: FormuxFieldSpacer(
-            child: FormuxInputField(
-              label: widget.label,
-              input: widget.input,
-              value: widget.value,
-              suffixIcon: switch (state) {
-                FetchPending() || FetchSuccess() => IconButton(
-                  icon: Icon(Icons.keyboard_arrow_down),
-                  onPressed: open,
+  Widget build(BuildContext context) =>
+      BlocBuilderFetch<FetchFieldCubit<T>, List<T>>(
+        builder: (context, state, bloc) =>
+            BlocListenerFetch<FetchFieldCubit<T>, List<T>>(
+              listener: FetchFieldListener(onItems: widget.params.onItems),
+              child: FormuxFieldSpacer(
+                child: FormuxInputField(
+                  label: widget.label,
+                  input: widget.input,
+                  value: widget.value,
+                  suffixIcon: switch (state) {
+                    FetchPending() || FetchSuccess() => IconButton(
+                      icon: Icon(Icons.keyboard_arrow_down),
+                      onPressed: open,
+                    ),
+                    FetchLoading() => FormuxFieldSpinner(),
+                    FetchFail() => IconButton(
+                      icon: Icon(Icons.refresh),
+                      onPressed: bloc.refresh,
+                    ),
+                  },
                 ),
-                FetchLoading() => FormuxFieldSpinner(),
-                FetchFail() => IconButton(icon: Icon(Icons.refresh), onPressed: bloc.refresh),
-              },
+              ),
             ),
-          ),
-        ),
-  );
+      );
 }

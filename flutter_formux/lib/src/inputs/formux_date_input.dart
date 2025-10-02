@@ -30,7 +30,9 @@ class FormuxDateInput extends FormuxDateTimeType with FormuxTranslations {
     if (minDateTime != null && value != null) {
       assertion(
         value!.isBefore(minDateTime!),
-        translations.dateTimeAfterThan(DateFormat("yyyy-MM-dd HH:mm").format(value!)),
+        translations.dateTimeAfterThan(
+          DateFormat("yyyy-MM-dd HH:mm").format(value!),
+        ),
       );
     }
 
@@ -39,7 +41,9 @@ class FormuxDateInput extends FormuxDateTimeType with FormuxTranslations {
       DateTime now = DateTime.now();
       assertion(
         value!.isBefore(now),
-        translations.dateTimeAfterThan(DateFormat("yyyy-MM-dd HH:mm").format(value!)),
+        translations.dateTimeAfterThan(
+          DateFormat("yyyy-MM-dd HH:mm").format(value!),
+        ),
       );
     }
   }

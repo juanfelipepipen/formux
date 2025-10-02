@@ -10,10 +10,13 @@ class WidthModeBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     final mode = FormuxThemeData.maybeOf(context)?.theme.widthMode;
     return mode == WidthMode.layout
-        ? LayoutBuilder(builder: (context, constrains) => builder(context, constrains.maxWidth))
+        ? LayoutBuilder(
+            builder: (context, constrains) =>
+                builder(context, constrains.maxWidth),
+          )
         : builder(context, switch (mode ?? WidthMode.max) {
-          WidthMode.max => double.infinity,
-          _ => null,
-        });
+            WidthMode.max => double.infinity,
+            _ => null,
+          });
   }
 }

@@ -9,7 +9,9 @@ class FormuxInputField extends StatelessWidget {
     this.label,
     this.input,
     this.value,
+    this.filled,
     this.enabled,
+    this.fillColor,
     this.suffixIcon,
   }) : informative = false;
 
@@ -17,16 +19,19 @@ class FormuxInputField extends StatelessWidget {
     super.key,
     this.input,
     this.value,
-    this.suffixIcon,
+    this.filled,
     this.enabled,
+    this.fillColor,
+    this.suffixIcon,
     required this.label,
   }) : informative = true;
 
+  final bool? enabled, filled;
   final String? value, label;
   final FormuxInput? input;
   final Widget? suffixIcon;
   final bool informative;
-  final bool? enabled;
+  final Color? fillColor;
 
   String? get _value {
     if (informative) {
@@ -35,13 +40,16 @@ class FormuxInputField extends StatelessWidget {
     return value;
   }
 
-  FloatingLabelBehavior get _floatingLabelBehavior =>
-      value == null ? FloatingLabelBehavior.never : FloatingLabelBehavior.always;
+  FloatingLabelBehavior get _floatingLabelBehavior => value == null
+      ? FloatingLabelBehavior.never
+      : FloatingLabelBehavior.always;
 
   @override
   Widget build(BuildContext context) => FormuxInputContainer(
     label: label,
+    filled: filled,
     enabled: enabled,
+    fillColor: fillColor,
     suffixIcon: suffixIcon,
     input: input ?? FormuxStringInput(),
     floatingLabelBehavior: _floatingLabelBehavior,
@@ -49,12 +57,11 @@ class FormuxInputField extends StatelessWidget {
       _value ?? label ?? '',
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
-      style:
-          _value == null || enabled == false
-              ? (input?.display == true
-                  ? context.theme.inputDecorationTheme.errorStyle
-                  : context.theme.inputDecorationTheme.labelStyle)
-              : context.theme.inputDecorationTheme.hintStyle,
+      style: _value == null || enabled == false
+          ? (input?.display == true
+                ? context.theme.inputDecorationTheme.errorStyle
+                : context.theme.inputDecorationTheme.labelStyle)
+          : context.theme.inputDecorationTheme.hintStyle,
     ),
   );
 }

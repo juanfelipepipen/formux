@@ -5,7 +5,7 @@ class FormuxValuableInput extends FormuxValuableType with FormuxTranslations {
   FormuxValuableInput({super.value, super.items, super.required, super.fetch});
 
   FormuxValuableInput.notRequired({super.value, super.items, super.fetch})
-      : super(required: false);
+    : super(required: false);
 
   @override
   void clear() {

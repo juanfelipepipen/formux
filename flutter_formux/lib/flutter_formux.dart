@@ -44,10 +44,14 @@ export 'src/fields/dropdown/builder/formux_dropdown_field_builder.dart';
 export 'src/fields/switch/formux_switch_button.dart';
 export 'src/fields/text/formux_password_field.dart';
 export 'src/fields/text/formux_text_field.dart';
+export 'src/fields/double/formux_double_field.dart';
 
 export 'src/input_type/formux_valuable_type.dart';
 
 export 'src/config/flutter_formux.dart';
+
+/// Validations
+export 'src/validations/formux_date_range_validator.dart';
 
 /// Theme
 export 'src/models/formux_theme.dart';

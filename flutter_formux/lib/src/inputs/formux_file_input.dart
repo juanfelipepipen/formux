@@ -2,7 +2,8 @@ import 'package:flutter_formux/flutter_formux.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:formux/formux.dart';
 
-class FormuxFileInput extends FormuxInput<PlatformFile?> with FormuxTranslations {
+class FormuxFileInput extends FormuxInput<PlatformFile?>
+    with FormuxTranslations {
   FormuxFileInput() : super(value: null);
 
   @override

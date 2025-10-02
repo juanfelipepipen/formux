@@ -1,4 +1,3 @@
-import 'package:flutter_formux/src/components/builder/fetcher_field_builder.dart';
 import 'package:flutter_formux/src/components/container/formux_field_spacer.dart';
 import 'package:flutter_formux/src/components/builder/width_mode_builder.dart';
 import 'package:flutter_formux/flutter_formux.dart';
@@ -6,14 +5,13 @@ import 'package:pipen_bloc/pipen_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:formux/formux.dart';
 
-typedef DropdownBuilderParams<T> =
-    ({
-      List<T> items,
-      Function(T? value) onChange,
-      Function(List<T> items) onItems,
-      String Function(T value) lister,
-      T? Function(List<T> items) initialSelector,
-    });
+typedef DropdownBuilderParams<T> = ({
+  List<T> items,
+  Function(T? value) onChange,
+  Function(List<T> items) onItems,
+  String Function(T value) lister,
+  T? Function(List<T> items) initialSelector,
+});
 
 class FormuxDropdownFieldBuilder<T> extends StatefulWidget {
   const FormuxDropdownFieldBuilder({
@@ -33,10 +31,12 @@ class FormuxDropdownFieldBuilder<T> extends StatefulWidget {
   final dynamic state;
 
   @override
-  State<FormuxDropdownFieldBuilder<T>> createState() => _FormuxDropdownFieldBuilderState<T>();
+  State<FormuxDropdownFieldBuilder<T>> createState() =>
+      _FormuxDropdownFieldBuilderState<T>();
 }
 
-class _FormuxDropdownFieldBuilderState<T> extends State<FormuxDropdownFieldBuilder<T>> {
+class _FormuxDropdownFieldBuilderState<T>
+    extends State<FormuxDropdownFieldBuilder<T>> {
   late TextEditingController controller;
 
   @override
@@ -57,31 +57,36 @@ class _FormuxDropdownFieldBuilderState<T> extends State<FormuxDropdownFieldBuild
   Widget build(BuildContext context) => FetcherFieldBuilder<T>(
     fetcher: widget.fetcher,
     onItems: widget.field.onItems,
-    builder:
-        (context, state, bloc) => FormuxFieldSpacer(
-          child: WidthModeBuilder(
-            builder:
-                (context, width) => DropdownMenu<T>(
-                  width: width,
-                  enableFilter: true,
-                  enableSearch: true,
-                  controller: controller,
-                  requestFocusOnTap: true,
-                  onSelected: widget.field.onChange,
-                  label: widget.label != null ? Text(widget.label!) : null,
-                  errorText: widget.input.display ? widget.input.error : null,
-                  initialSelection: widget.field.initialSelector(widget.field.items),
-                  trailingIcon: switch (state) {
-                    FetchLoading() => FormuxFieldSpinner(),
-                    FetchFail() => IconButton(icon: Icon(Icons.refresh), onPressed: bloc.refresh),
-                    _ => null,
-                  },
-                  dropdownMenuEntries:
-                      widget.field.items
-                          .map((e) => DropdownMenuEntry<T>(value: e, label: widget.field.lister(e)))
-                          .toList(),
+    builder: (context, state, bloc) => FormuxFieldSpacer(
+      child: WidthModeBuilder(
+        builder: (context, width) => DropdownMenu<T>(
+          width: width,
+          enableFilter: true,
+          enableSearch: true,
+          controller: controller,
+          requestFocusOnTap: true,
+          onSelected: widget.field.onChange,
+          label: widget.label != null ? Text(widget.label!) : null,
+          errorText: widget.input.display ? widget.input.error : null,
+          initialSelection: widget.field.initialSelector(widget.field.items),
+          trailingIcon: switch (state) {
+            FetchLoading() => FormuxFieldSpinner(),
+            FetchFail() => IconButton(
+              icon: Icon(Icons.refresh),
+              onPressed: bloc.refresh,
+            ),
+            _ => null,
+          },
+          dropdownMenuEntries: widget.field.items
+              .map(
+                (e) => DropdownMenuEntry<T>(
+                  value: e,
+                  label: widget.field.lister(e),
                 ),
-          ),
+              )
+              .toList(),
         ),
+      ),
+    ),
   );
 }
