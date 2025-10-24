@@ -55,7 +55,7 @@ class FormuxInputContainer extends StatelessWidget {
           focusedErrorBorder: errorBorder,
           floatingLabelBehavior: floatingLabelBehavior,
           border: context.theme.inputDecorationTheme.border,
-          errorStyle: TextStyle(color: context.themeColors.error),
+          errorStyle: context.theme.inputDecorationTheme.errorStyle,
           errorBorder: context.theme.inputDecorationTheme.errorBorder,
           focusedBorder: context.theme.inputDecorationTheme.focusedBorder,
           floatingLabelStyle:

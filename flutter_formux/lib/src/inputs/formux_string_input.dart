@@ -26,7 +26,7 @@ class FormuxStringInput extends FormuxStringType with FormuxTranslations {
     assertion(value.length > maxLength, translations.fixedLength(maxLength));
 
     if (validations.contains(FormuxStringInputValidations.onlyAlphanumeric)) {
-      RegExp regex = RegExp(r'^[a-zA-Z0-9]+$');
+      final regex = RegExp(r'^[a-zA-Z0-9\s]+$');
       assertion(!regex.hasMatch(value), translations.onlyAlphanumeric);
     }
   }

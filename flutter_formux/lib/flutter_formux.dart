@@ -15,7 +15,8 @@ export 'src/components/container/formux_controller_container.dart';
 export 'src/components/container/formux_currency_controller_container.dart';
 export 'src/components/container/formux_input_container.dart';
 export 'src/components/container/formux_input_field.dart';
-export 'src/components/error_text/formux_error_text.dart';
+export 'src/components/error/formux_error_container.dart';
+export 'src/components/error/formux_error_text.dart';
 export 'src/components/loader/formux_field_spinner.dart';
 export 'src/components/text/formux_input_text.dart';
 export 'src/components/validator/formux_bloc_form_validator.dart';
@@ -23,6 +24,7 @@ export 'src/tool/formux_initializer.dart';
 export 'src/tool/formux_tool.dart';
 export 'src/tool/formux_years_generator.dart';
 export 'src/components/builder/fetcher_field_builder.dart';
+export 'src/components/container/formux_field_spacer.dart';
 
 /// Inputs
 export 'src/inputs/formux_boolean_input.dart';

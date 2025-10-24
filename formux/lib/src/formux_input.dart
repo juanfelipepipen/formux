@@ -38,8 +38,11 @@ abstract class FormuxInput<T> {
   T get value => _value;
 
   /// [Constructor]
-  FormuxInput({required T value, this.required = true, this.displayOnUpdate = false})
-      : _value = value {
+  FormuxInput({
+    required T value,
+    this.required = true,
+    this.displayOnUpdate = false,
+  }) : _value = value {
     validate();
     hideErrors();
   }
@@ -70,8 +73,13 @@ abstract class FormuxInput<T> {
   }
 
   /// Add custom error
-  void addError(String message) {
-    _messages.add(message);
+  void addError(String message, {bool? principal}) {
+    if (principal == true) {
+      _messages = [message, ..._messages];
+    } else {
+      _messages.add(message);
+    }
+
     errors = true;
   }
 

@@ -66,13 +66,7 @@ class _FormuxErrorTextState extends State<FormuxErrorText> {
         child: Text(
           error ?? '',
           textAlign: widget.align,
-          style:
-              widget.style ??
-              TextStyle(
-                fontWeight: widget.fontWeight,
-                letterSpacing: widget.letterSpacing,
-                color: widget.color ?? context.themeColors.error,
-              ),
+          style: context.theme.inputDecorationTheme.errorStyle,
         ),
       ),
     ),

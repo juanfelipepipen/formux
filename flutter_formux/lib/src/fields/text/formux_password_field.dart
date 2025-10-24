@@ -18,6 +18,7 @@ class FormuxPasswordField extends StatefulWidget {
     this.suffixPadding,
     this.contentPadding,
     this.floatingLabelBehavior,
+    this.withLabel = true,
     this.passwordViewer = true,
     required this.input,
     required this.onChange,
@@ -25,12 +26,12 @@ class FormuxPasswordField extends StatefulWidget {
 
   final FloatingLabelBehavior? floatingLabelBehavior;
   final EdgeInsetsGeometry? contentPadding;
+  final bool passwordViewer, withLabel;
   final Function(String) onChange;
   final EdgeInsets? suffixPadding;
   final VoidCallback? onSubmitted;
   final FormuxStringType input;
   final bool? enabled, filled;
-  final bool passwordViewer;
   final InputBorder? border;
   final TextStyle? style;
   final Color? fillColor;
@@ -60,7 +61,9 @@ class _FormuxPasswordFieldState extends State<FormuxPasswordField> {
     obscureText: !showPassword,
     onSubmitted: widget.onSubmitted,
     floatingLabelBehavior: widget.floatingLabelBehavior,
-    label: widget.label ?? FormuxLocalization.of(context)!.password,
+    label: widget.withLabel
+        ? widget.label ?? FormuxLocalization.of(context)?.password
+        : null,
     suffixIcon: widget.passwordViewer
         ? Padding(
             padding: widget.suffixPadding ?? EdgeInsets.zero,

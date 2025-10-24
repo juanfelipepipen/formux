@@ -1,4 +1,3 @@
-import 'package:flutter_formux/src/components/container/formux_field_spacer.dart';
 import 'package:flutter_formux/flutter_formux.dart';
 import 'package:flutter/material.dart';
 import 'package:pipen/extensions.dart';
@@ -14,7 +13,9 @@ class FormuxTextField extends StatelessWidget {
     this.suffix,
     this.border,
     this.filled,
+    this.helper,
     this.enabled,
+    this.maxLength,
     this.hintText,
     this.minLines,
     this.hintStyle,
@@ -28,12 +29,14 @@ class FormuxTextField extends StatelessWidget {
     this.controller,
     this.suffixIcon,
     this.onSubmitted,
+    this.buildCounter,
     this.keyboardType,
     this.contentPadding,
     required this.input,
     required this.onChange,
     this.obscureText = false,
     this.floatingLabelBehavior,
+    this.textCapitalization,
   });
 
   const FormuxTextField.obscureText({
@@ -45,7 +48,9 @@ class FormuxTextField extends StatelessWidget {
     this.suffix,
     this.border,
     this.filled,
+    this.helper,
     this.enabled,
+    this.maxLength,
     this.minLines,
     this.hintText,
     this.hintStyle,
@@ -59,11 +64,13 @@ class FormuxTextField extends StatelessWidget {
     this.focusNode,
     this.suffixIcon,
     this.onSubmitted,
+    this.buildCounter,
     this.keyboardType,
     this.contentPadding,
     required this.input,
     required this.onChange,
     this.floatingLabelBehavior,
+    this.textCapitalization,
   }) : obscureText = true;
 
   const FormuxTextField.textArea({
@@ -72,10 +79,12 @@ class FormuxTextField extends StatelessWidget {
     this.label,
     this.icon,
     this.border,
+    this.helper,
     this.prefix,
     this.suffix,
     this.filled,
     this.enabled,
+    this.maxLength,
     this.hintText,
     this.hintStyle,
     this.fillColor,
@@ -89,12 +98,14 @@ class FormuxTextField extends StatelessWidget {
     this.suffixIcon,
     this.onSubmitted,
     this.minLines = 3,
+    this.buildCounter,
     this.keyboardType,
     this.contentPadding,
     required this.input,
     required this.onChange,
     this.obscureText = false,
     this.floatingLabelBehavior,
+    this.textCapitalization,
   });
 
   static FormuxPasswordField password({
@@ -121,16 +132,18 @@ class FormuxTextField extends StatelessWidget {
     contentPadding: contentPadding,
   );
 
-  final Widget? suffixIcon, icon, prefixIcon, prefix, suffix;
+  final Widget? suffixIcon, icon, prefixIcon, prefix, suffix, helper;
   final String? label, prefixText, suffixText, helperText;
   final FloatingLabelBehavior? floatingLabelBehavior;
+  final bool? filled, enabled, textCapitalization;
+  final InputCounterWidgetBuilder? buildCounter;
   final EdgeInsetsGeometry? contentPadding;
   final TextEditingController? controller;
   final TextInputType? keyboardType;
   final TextStyle? style, hintStyle;
   final Function(String) onChange;
   final VoidCallback? onSubmitted;
-  final bool? filled, enabled;
+  final int? minLines, maxLength;
   final TextAlign? textAlign;
   final FocusNode? focusNode;
   final InputBorder? border;
@@ -138,7 +151,6 @@ class FormuxTextField extends StatelessWidget {
   final String? hintText;
   final bool obscureText;
   final Color? fillColor;
-  final int? minLines;
 
   @override
   Widget build(BuildContext context) => FormuxFieldSpacer(
@@ -149,15 +161,22 @@ class FormuxTextField extends StatelessWidget {
         minLines: minLines,
         onChanged: onChange,
         focusNode: focusNode,
+        maxLength: maxLength,
         maxLines: minLines ?? 1,
         obscureText: obscureText,
         keyboardType: keyboardType,
+        textCapitalization: textCapitalization == true
+            ? TextCapitalization.sentences
+            : TextCapitalization.none,
         textAlign: textAlign ?? TextAlign.start,
         controller: controller ?? formuxController,
+        buildCounter: buildCounter,
         onFieldSubmitted: (_) => onSubmitted?.call(),
         decoration: InputDecoration(
           errorMaxLines: 3,
+          helperMaxLines: 10,
           icon: icon,
+          helper: helper,
           border: border,
           filled: filled,
           prefix: prefix,
@@ -177,7 +196,6 @@ class FormuxTextField extends StatelessWidget {
           contentPadding: contentPadding,
           focusColor: context.themeColors.primary,
           floatingLabelBehavior: floatingLabelBehavior,
-          errorStyle: TextStyle(color: context.themeColors.error),
           floatingLabelStyle: style?.copyWith(
             color: context.themeColors.primary,
           ),
