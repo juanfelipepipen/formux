@@ -26,6 +26,9 @@ export 'src/tool/formux_years_generator.dart';
 export 'src/components/builder/fetcher_field_builder.dart';
 export 'src/components/container/formux_field_spacer.dart';
 
+// Providers
+export 'src/components/provider/multi_bloc_provider_p.dart';
+
 /// Inputs
 export 'src/inputs/formux_boolean_input.dart';
 export 'src/inputs/formux_file_input.dart';

@@ -1,3 +1,7 @@
+## 2.1.2
+
+- Minimal changes
+
 ## 2.1.1
 
 - Dependencies upgraded

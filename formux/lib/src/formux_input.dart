@@ -115,6 +115,11 @@ abstract class FormuxInput<T> {
     errors = false;
   }
 
+  /// Make input required from bool
+  void requiredFrom(bool? value) {
+    required = value == true;
+  }
+
   /// Convert current value to string
   String valueToString() {
     return value.toString();

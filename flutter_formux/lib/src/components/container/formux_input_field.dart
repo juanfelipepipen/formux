@@ -61,7 +61,7 @@ class FormuxInputField extends StatelessWidget {
           ? (input?.display == true
                 ? context.theme.inputDecorationTheme.errorStyle
                 : context.theme.inputDecorationTheme.labelStyle)
-          : context.theme.inputDecorationTheme.hintStyle,
+          : context.theme.textTheme.bodyLarge,
     ),
   );
 }

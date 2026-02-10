@@ -1,3 +1,7 @@
+## 1.0.8
+
+- Minimal corrections
+
 ## 1.0.7
 
 - Minimal corrections

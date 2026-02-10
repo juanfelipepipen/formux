@@ -1,5 +1,4 @@
 import 'package:flutter_formux/src/state/dropdown/listener/fetch_field_listener.dart';
-import 'package:flutter_formux/src/components/container/formux_field_spacer.dart';
 import 'package:flutter_formux/src/state/dropdown/state/fetch_field_cubit.dart';
 import 'package:flutter_formux/flutter_formux.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

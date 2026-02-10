@@ -17,7 +17,8 @@ abstract class Formux<F> {
   List<FormuxInput> get inputs;
 
   /// [Getter] All inputs passed
-  bool get passed => inputs.every((input) => input.required ? input.pass : true);
+  bool get passed =>
+      inputs.every((input) => input.required ? input.pass : true);
 
   /// All inputs is loading
   bool get isLoading => inputs.every((input) => input.isLoading);
