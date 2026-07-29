@@ -1,6 +1,6 @@
 dependency_overrides:
-#  formux:
-#    path: ../formux
+  formux:
+    path: ../formux
 #  pipen_bloc:
 #    path: ../../pipen_bloc
 #  pipen:

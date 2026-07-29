@@ -3,18 +3,15 @@ import 'package:formux/formux.dart';
 import 'package:bloc/bloc.dart';
 
 abstract class CubitForm<F extends Formux> extends Cubit<F> {
-  CubitForm(super.initialState) {
-    assert(state is FormuxCopy<F>);
-  }
+  CubitForm(super.initialState);
 
   /// Validate form and if is valid, call method and
   /// emit new state from parent
   void validate(Function(F form) onValid) {
-    F form = state;
-    bool valid = form.valid();
+    final isValid = state.valid();
 
-    if (valid) {
-      onValid.call(form);
+    if (isValid) {
+      onValid.call(state);
     }
 
     emit(_copyForm());

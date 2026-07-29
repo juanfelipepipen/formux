@@ -4,21 +4,29 @@ import 'package:formux/formux.dart';
 typedef IntListFutureCallback = Future<IntList> Function()?;
 typedef IntList = List<int>;
 
-class FormuxIntegerInput extends FormuxInput<int?> with FormuxTranslations {
-  FormuxIntegerInput({super.value, this.fetcher, this.maxValue, IntList? items})
-    : items = items ?? [];
+class FormuxIntegerInput extends FormuxInput<int?>
+    with FormuxTranslations
+    implements FormuxInputValueUpdater<int?> {
+  FormuxIntegerInput({
+    super.value,
+    this.fetcher,
+    this.minValue,
+    this.maxValue,
+    IntList? items,
+  }) : items = items ?? [];
 
   FormuxIntegerInput.notRequired({
     super.value,
     this.fetcher,
+    this.minValue,
     this.maxValue,
     IntList? items,
   }) : items = items ?? [],
        super(required: false);
 
   IntListFutureCallback? fetcher;
+  int? maxValue, minValue;
   IntList items = [];
-  int? maxValue;
 
   int get intValue => value ?? 0;
 
@@ -63,6 +71,21 @@ class FormuxIntegerInput extends FormuxInput<int?> with FormuxTranslations {
       },
     };
     callback();
+  }
+
+  @override
+  int? onValue(int? value) {
+    // Min value
+    if (value != null && minValue != null && value < minValue!) {
+      return minValue!;
+    }
+
+    // Max value
+    if (value != null && maxValue != null && value > maxValue!) {
+      return maxValue!;
+    }
+
+    return value;
   }
 }
 

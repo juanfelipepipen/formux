@@ -53,9 +53,14 @@ abstract class FormuxInput<T> {
   /// [Abstract] Clear input
   void clear();
 
-  /// [Setter] Set input value
+  /// [Setter] Set input value and handle validations
   set value(T value) {
-    _value = value;
+    if (this case FormuxInputValueUpdater<T> valueUpdater) {
+      _value = valueUpdater.onValue(value);
+    } else {
+      _value = value;
+    }
+
     validate();
   }
 

@@ -5,6 +5,7 @@ export 'src/formux.dart';
 export 'src/abstract/formux_copy.dart';
 export 'src/abstract/formux_input_error_codes.dart';
 export 'src/abstract/formux_input_ids.dart';
+export 'src/abstract/formux_input_value_updater.dart';
 
 export 'src/cubit/cubit_form.dart';
 

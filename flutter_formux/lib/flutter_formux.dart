@@ -6,6 +6,7 @@ export 'src/strategies/formux_input_error_code_strategy.dart';
 
 export 'src/mixin/translations_mixin.dart';
 export 'src/abstract/formux_error_codes_manager.dart';
+export 'src/abstract/formux_fetcher_input.dart';
 
 export 'src/l10n/formux_localization.dart';
 export 'src/l10n/formux_localization_es.dart';
@@ -42,6 +43,7 @@ export 'src/inputs/formux_email_input.dart';
 export 'src/inputs/formux_integer_input.dart';
 export 'src/inputs/formux_date_input.dart';
 export 'src/inputs/formux_lat_lng_input.dart';
+export 'src/inputs/formux_string_fetch_input.dart';
 
 /// Dropdown
 export 'src/fields/dropdown/fetcher/formux_dropdown_fetcher_field.dart';
