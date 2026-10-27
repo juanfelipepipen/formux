@@ -1,5 +1,3 @@
-import 'package:formux/src/exceptions/formux_failed_pass_exception.dart';
-
 import '../formux.dart';
 
 part 'formux_input.dart';
