@@ -1,5 +1,5 @@
 name: flutter_formux
-version: 1.0.8
+version: 1.1.0
 homepage: https://formux.pipen.dev
 repository: https://github.com/juanfelipepipen/formux
 documentation: https://formux.pipen.dev
@@ -8,8 +8,8 @@ description: Interface tools for validating forms, managing state with BLoC, int
   Material components.
 
 environment:
-  sdk: ^3.10.0
-  flutter: ^3.35.0
+  sdk: ^3.13.0
+  flutter: ^3.47.0
 
 dependencies:
   flutter:
@@ -28,11 +28,11 @@ dependencies:
   currency_textfield: ^5.0.0+1
 
   # Pipen libs
-  pipen: ^2.2.2
-  formux: ^2.1.1
-  pipen_bloc: ^1.2.4
-  file_picker: 10.2.0
-  latlong2: ^0.9.1
+  pipen: ^2.3.0
+  formux: ^2.1.4
+  pipen_bloc: ^1.2.0
+  file_picker: ^13.3.0
+  latlong2: ^0.10.1
 
 dev_dependencies:
   flutter_test:
